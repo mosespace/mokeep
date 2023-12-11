@@ -42,3 +42,26 @@ export async function POST(request) {
     return NextResponse.json({ error });
   }
 }
+
+// Getting back the user from MongoDB
+export async function GET(request) {
+  try {
+    const user = await db.user.findMany({
+      include: {
+        notes: true,
+      },
+    });
+    // console.log(user)
+    return NextResponse.json(user);
+  } catch (error) {
+    return NextResponse.json(
+      {
+        message: "Failed get back a user",
+        error: error.message,
+      },
+      {
+        status: 500,
+      }
+    );
+  }
+}

@@ -1,12 +1,6 @@
-import toast from "sonner";
+import { toast } from "sonner";
 
-export async function makePostRequest(
-  setLoading,
-  endpoint,
-  data,
-  postName,
-  reset
-) {
+export async function apiRequest(setLoading, endpoint, data, postName, reset) {
   try {
     setLoading(true);
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
@@ -18,21 +12,18 @@ export async function makePostRequest(
       body: JSON.stringify(data),
     });
 
-    console.log(response);
-    console.log(data);
+    // console.log(response);
 
     if (response.ok) {
       setLoading(false);
-      toast.success(`New ${postName} Created Successfully`);
       reset();
+      toast.success(`New ${postName} Created Successfully`);
     } else {
       setLoading(false);
-      if (response.status === 409) {
-        toast.error("Fill In All The Necessary Data");
-      } else {
-        toast.error(`Error: ${response.statusText}`);
-        console.log(response);
-      }
+      toast.error(
+        `It seems you have Link network error, please try again Data`
+      );
+      console.log(error);
     }
   } catch (error) {
     setLoading(false);
