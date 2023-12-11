@@ -3904,7 +3904,7 @@ simple-swizzle@^0.2.2:
 
 sonner@^1.2.4:
   version "1.2.4"
-  resolved "https://registry.npmjs.org/sonner/-/sonner-1.2.4.tgz"
+  resolved "https://registry.yarnpkg.com/sonner/-/sonner-1.2.4.tgz#c13b079a79fabef72135537aeb0164ad0671d044"
   integrity sha512-WGLP2QQnomgewaCTsK7YWiLcy5n1Yj83vsL5cP4zHMmpSkmFsCYTpQKhlXJrPE5kzjwbqCkCFXcOpbKc4vaUaA==
 
 source-map-js@^1.0.2:

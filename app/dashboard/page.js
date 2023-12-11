@@ -15,9 +15,9 @@ export default function page() {
   //   redirect("/");
   // }
   return (
-    <div className='h-screen overflow-hidden flex flex-col gap-8 justify-start px-16 py-8'>
+    <div className='h-screen overflow-hidden flex flex-col gap-8 justify-start items-center px-16 py-8 w-screen'>
       <Form />
-      <div
+      {/* <div
         className='grid grid-cols-5 gap-3'
         style={{ gridAutoRows: "min-content" }}
       >
@@ -51,7 +51,7 @@ export default function page() {
         <div className='col-span-2/  border-2 border-red-600 p-3 rounded-md'>
           Cell 10
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

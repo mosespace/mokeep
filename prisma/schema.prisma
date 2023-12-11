@@ -8,9 +8,22 @@ datasource db {
 }
 
 model User {
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  id             String @id @default(auto()) @map("_id") @db.ObjectId
   firstName      String?
   secondName     String?
   email          String @unique
   password       String
+  notes          Note[]
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+}
+
+model Note {
+  id             String  @id @default(auto()) @map("_id") @db.ObjectId
+  title          String
+  description    String
+  userId         String  @db.ObjectId
+  user           User    @relation(fields: [userId], references: [id])
+  updatedAt      DateTime  @updatedAt
+  createdAt      DateTime  @default(now())
 }
