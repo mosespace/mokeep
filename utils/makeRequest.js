@@ -1,4 +1,4 @@
-import toast from "react-hot-toast";
+import { toast } from "sonner";
 
 async function makeRequest(setLoading, endpoint, data, resourceName, reset) {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
@@ -27,8 +27,8 @@ async function makeRequest(setLoading, endpoint, data, resourceName, reset) {
         setEmailError("User with this email already exists");
         toast.error("User with this email already exists");
       } else {
-        console.log("Sever Error:", responseData.message);
         toast.error("Ops, something went wrong");
+        console.log("Sever Error:", responseData.message);
       }
     }
   } catch (error) {

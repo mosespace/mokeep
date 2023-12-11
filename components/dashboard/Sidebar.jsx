@@ -1,12 +1,14 @@
 "use client";
+import Link from "next/link";
 import Image from "next/image";
+import { toast } from "sonner/dist";
+import { redirect } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
 import generateInitials from "@/utils/generateInitials";
-import Link from "next/link";
 
 export default function Sidebar() {
   //   console.log(status);
-  //   const names = ["HelloKisakye World kagame"];
+  //   const names = ["HelloKisakye World Moses"];
   //   const name = names[0].split(" ")[0];
   //   console.log(name);
   const { data: session, status } = useSession();
@@ -14,6 +16,12 @@ export default function Sidebar() {
   const username = session?.user?.name ?? "";
 
   const initials = generateInitials(session?.user?.name);
+
+  function logOut() {
+    signOut();
+    toast.success("Your Logout and being redirected");
+    redirect("/");
+  }
   return (
     <>
       <div className='flex h-screen w-16 flex-col justify-between border-e bg-white fixed top-0 bottom-0 left-0'>
@@ -181,7 +189,7 @@ export default function Sidebar() {
 
         <div className='sticky inset-x-0 bottom-0 border-t border-gray-100 bg-white p-2'>
           <button
-            onClick={() => signOut("/")}
+            onClick={() => logOut()}
             type='submit'
             className='group relative flex w-full justify-center rounded-lg px-2 py-1.5 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700'
           >

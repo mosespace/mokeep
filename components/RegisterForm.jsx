@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import toast from "react-hot-toast";
+import { toast } from "sonner";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";

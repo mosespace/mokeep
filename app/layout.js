@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Toaster } from "react-hot-toast";
+import { Toaster } from "sonner";
 import AuthProvider from "@/context/AuthProvider";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
@@ -17,12 +17,12 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <body className={inter.className}>
         <AuthProvider>
-          <Toaster position='top-center' reverseOrder={false} />
           <Nav />
 
           {children}
           <Footer />
         </AuthProvider>
+        <Toaster position='top-center' expand={false} richColors closeButton />
       </body>
     </html>
   );
