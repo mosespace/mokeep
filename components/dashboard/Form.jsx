@@ -15,7 +15,7 @@ export default function Form() {
   };
 
   const handleNoteClose = () => {
-    // Reset form state when closing the note
+    // Resting form state when closing the note
     setExpanded(false);
   };
 
@@ -46,10 +46,10 @@ export default function Form() {
   }
   return (
     <div
-      className={`overflow-hidden max-w-2xl absolute z-50 ${
+      className={`overflow-hidden max-w-2xl top-0 ${
         isExpanded
-          ? "expanded w-full max-w-2xl border-2 border-red-500 rounded-md h-[200px] shadow-lg bg-white"
-          : "w-full"
+          ? "expanded w-full max-w-2xl border-2 border-red-500 rounded-md h-[200px] shadow-lg bg-white fixed left-1/4 transform z-50 mt-10"
+          : "w-full fixed top-0 left-1/2 transform -translate-x-1/2 z-50 mt-10 bg-white"
       }`}
     >
       <h1
