@@ -43,7 +43,7 @@ export async function POST(request) {
   }
 }
 
-// Getting back the user from MongoDB
+// Getting back the users from MongoDB
 export async function GET(request) {
   try {
     const user = await db.user.findMany({
@@ -51,7 +51,7 @@ export async function GET(request) {
         notes: true,
       },
     });
-    // console.log(user)
+    // console.log(user);
     return NextResponse.json(user);
   } catch (error) {
     return NextResponse.json(

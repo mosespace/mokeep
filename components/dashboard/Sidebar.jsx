@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { toast } from "sonner";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
 import generateInitials from "@/utils/generateInitials";
 
@@ -17,10 +17,10 @@ export default function Sidebar() {
 
   const initials = generateInitials(session?.user?.name);
 
+  const router = useRouter();
   function logOut() {
     signOut();
     toast.success("Your Logout and being redirected");
-    redirect("/");
   }
   return (
     <>

@@ -3,13 +3,13 @@ import { NextResponse } from "next/server";
 
 export async function POST(request) {
   try {
-    const { title, description, emailId } = await request.json();
+    const { title, description, userId } = await request.json();
 
     const newNote = await db.note.create({
       data: {
         title,
         description,
-        emailId,
+        userId,
       },
     });
     // console.log(newNote);

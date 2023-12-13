@@ -2,7 +2,7 @@ import db from "./db";
 import { compare } from "bcrypt";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import CredentialsProvider from "next-auth/providers/credentials";
-import {toast} from "sonner";
+import { toast } from "sonner";
 
 export const authOptions = {
   adapter: PrismaAdapter(db),
@@ -98,15 +98,13 @@ export const authOptions = {
   ],
   callbacks: {
     async session({ session, token }) {
-      // console.log(user);
-      // console.log(token);
-      // console.log(token);
-      const { firstName, secondName } = token;
+      const { firstName, secondName, id } = token;
       session.user.name = `${firstName} ${secondName}`;
+      session.user.id = id;
       session.user.firstName = firstName;
       session.user.secondName = secondName;
 
-      // console.log(session);
+      // console.log(session.user.id);
       return session;
     },
     async jwt({ token, user, account, profile, isNewUser }) {

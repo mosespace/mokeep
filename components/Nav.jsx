@@ -1,13 +1,16 @@
 "use client";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 export const Nav = () => {
+  const { data: session } = useSession();
+  const userId = session?.user?.id;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
-  if (pathname === "/dashboard") {
+  if (pathname === `/dashboard/${userId}`) {
     return null;
   }
   return (
