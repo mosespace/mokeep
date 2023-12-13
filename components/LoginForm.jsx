@@ -2,11 +2,12 @@
 import Link from "next/link";
 import { toast } from "sonner";
 import React, { useState } from "react";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
+  const { data: session } = useSession();
   const router = useRouter();
   const {
     handleSubmit,
@@ -18,10 +19,13 @@ export default function LoginForm() {
   const [loading, setLoading] = useState(false);
   //   console.log(emailError)
 
+  const userId = session?.user?.id;
+
+  // console.log(userId);
   async function onSubmit(data) {
     console.log(data);
     try {
-      console.log(data.email, data.password);
+      // console.log(data.email, data.password);
       setLoading(true);
       const loginData = await signIn("credentials", {
         ...data,
@@ -34,7 +38,7 @@ export default function LoginForm() {
         setLoading(false);
         toast.success("Login has been created successfully");
         reset();
-        router.push("/dashboard");
+        router.push(`/dashboard`);
       }
     } catch (error) {
       setLoading(false);
