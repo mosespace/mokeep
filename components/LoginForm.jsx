@@ -2,13 +2,14 @@
 import Link from "next/link";
 import { toast } from "sonner";
 import React, { useState } from "react";
-import { signIn, useSession } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
+import { signIn, useSession } from "next-auth/react";
 
 export default function LoginForm() {
   const { data: session } = useSession();
   const router = useRouter();
+
   const {
     handleSubmit,
     register,
@@ -17,32 +18,39 @@ export default function LoginForm() {
   } = useForm();
 
   const [loading, setLoading] = useState(false);
-  //   console.log(emailError)
 
   const userId = session?.user?.id;
 
   // console.log(userId);
   async function onSubmit(data) {
-    console.log(data);
     try {
-      // console.log(data.email, data.password);
       setLoading(true);
-      const loginData = await signIn("credentials", {
-        ...data,
+      const res = await signIn("credentials", {
         redirect: false,
+        ...data,
       });
-      // const responseData = await loginData.json();
-      // console.log(loginData);
 
-      if (loginData.ok) {
+      console.log(res);
+      if (!res.ok) {
+        // Handle the case where the response is not okay
+        // const errorData = await res.json();
+        // console.error("Error response:", errorData);
+        toast.error("Login failed. Please check your credentials.");
         setLoading(false);
-        toast.success("Login has been created successfully");
-        reset();
-        router.push(`/dashboard`);
+        return;
       }
-    } catch (error) {
+
+      // Continue with the logic for successful login
+      // const responseData = await res.json();
+      // console.log("Success response:", responseData);
+
       setLoading(false);
-      console.error("Network Error:", error);
+      toast.success("Login has been created successfully");
+      reset();
+      router.push(`/dashboard`);
+    } catch (error) {
+      console.error("An unexpected error occurred:", error);
+      setLoading(false);
       toast.error("It seems you have a network error, please try again");
     }
   }

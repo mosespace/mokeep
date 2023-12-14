@@ -10,9 +10,10 @@ export const Nav = () => {
   const userId = session?.user?.id;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
-  if (pathname === `/dashboard/${userId}`) {
+  if (pathname === `/dashboard/${userId}` || pathname === `/dashboard`) {
     return null;
   }
+
   return (
     <div className='fixed top-0 right-0 left-0 z-[230] bg-slate-50'>
       <div className='px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>

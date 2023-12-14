@@ -1,8 +1,8 @@
 import db from "./db";
+import { toast } from "sonner";
 import { compare } from "bcrypt";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { toast } from "sonner";
 
 export const authOptions = {
   adapter: PrismaAdapter(db),

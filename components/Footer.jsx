@@ -1,15 +1,24 @@
-"use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { BsTwitterX, BsInstagram } from "react-icons/bs";
+import { headers } from "next/headers";
+import { getData } from "@/utils/getData";
+import { getServerSession } from "next-auth";
 import { FaFacebookSquare } from "react-icons/fa";
+import { authOptions } from "@/utils/authOptions";
+import { BsTwitterX, BsInstagram } from "react-icons/bs";
 
-export const Footer = () => {
-  const pathname = usePathname();
+export default async function Footer() {
+  const session = await getServerSession(authOptions);
 
-  if (pathname === "/dashboard") {
+  const userId = session?.user?.id;
+
+  const _headers = headers();
+  const url = new URL(_headers.get("x-url"));
+  const pathname = url.pathname;
+  // console.log(pathname);
+  if (pathname === `/dashboard` || pathname === `/dashboard/${userId} `) {
     return null;
   }
+
   return (
     <div className='px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
       <div className='grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4'>
@@ -148,4 +157,4 @@ export const Footer = () => {
       </div>
     </div>
   );
-};
+}

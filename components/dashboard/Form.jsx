@@ -1,21 +1,31 @@
 "use client";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import { apiRequest } from "@/utils/apiRequest";
 import { RiCloseCircleFill } from "react-icons/ri";
-import { useRouter } from "next/navigation";
-export default function Form() {
+import { usePathname, useRouter } from "next/navigation";
+
+export default function Form({ note }) {
   const [isExpanded, setExpanded] = useState(false);
   const [loading, setLoading] = useState(false);
   const { data: session } = useSession();
+
+  const pathname = usePathname();
+  // Using useEffect to setExpanded based on pathname
+  useEffect(() => {
+    if (pathname === `/dashboard/${note?.id}`) {
+      setExpanded(true);
+    } else {
+      setExpanded(false);
+    }
+  }, []);
 
   const handleToggleExpand = () => {
     setExpanded(!isExpanded);
   };
 
   const handleNoteClose = () => {
-    // Resting form state when closing the note
     setExpanded(false);
   };
 
@@ -24,6 +34,7 @@ export default function Form() {
     register,
     reset,
     formState: { errors },
+    defaultValue = "",
   } = useForm();
 
   const userId = session?.user?.id;
@@ -34,21 +45,35 @@ export default function Form() {
   const handleRefresh = () => {
     router.refresh();
   };
+
   async function onSubmit(data) {
     const requestData = {
       ...data,
       userId,
     };
-    // console.log(requestData);
-    apiRequest(setLoading, "/api/notes", requestData, "Notes", reset);
+
+    // If note exists, it's an update, else it's a create
+    const apiRoute = note ? `/api/notes/${note.id}` : "/api/notes";
+
+    // Determining the HTTP method based on the presence of the note
+    const method = note ? "PUT" : "POST";
+
+    apiRequest(setLoading, apiRoute, requestData, "Note", reset, method);
+
     handleRefresh();
+    if (method === "PUT") {
+      router.push("/dashboard");
+      router.refresh();
+      setExpanded(true);
+    }
     setExpanded(false);
   }
+
   return (
     <div
       className={`overflow-hidden max-w-2xl top-0 ${
         isExpanded
-          ? "expanded w-full max-w-2xl border-2 border-red-500 rounded-md h-[200px] shadow-lg bg-white fixed left-1/4 transform z-50 mt-10"
+          ? "expanded w-full max-w-2xl border-2 border-red-500 rounded-md h-auto shadow-lg bg-white fixed left-1/4 transform z-50 mt-10"
           : "w-full fixed top-0 left-1/2 transform -translate-x-1/2 z-50 mt-10 bg-white"
       }`}
     >
@@ -58,7 +83,8 @@ export default function Form() {
           isExpanded ? "border-0" : ""
         }`}
       >
-        Take a note...{" "}
+        {note ? "Update Note" : "Take a note..."}
+
         {isExpanded ? (
           <RiCloseCircleFill
             className='close-icon cursor-pointer'
@@ -77,21 +103,30 @@ export default function Form() {
             {...register("title", { required: true })}
             name='title'
             type='text'
-            // value={title}
-            // onChange={handleTitleChange}
+            defaultValue={note?.title}
             className='note-input title-input outline-0 border-0 focus:outline-0 focus:ring-0'
             placeholder='Title'
           />
-          <textarea
+          {/* <textarea
             {...register("description", { required: true })}
             name='description'
             rows='1'
-            // value={note}
-            // onChange={handleNoteChange}
+            defaultValue={note?.description}
             className='note-input note-textarea outline-0 border-0 focus:outline-0 focus:ring-0 overflow-y-hidden resize-none min-height-[50px]'
             placeholder='Take a note...'
-          />
-          <div className='place-content-center flex items-center'>
+          /> */}
+          <div className='mt-2'>
+            <textarea
+              {...register("description", { required: false })}
+              name='description'
+              id='description'
+              rows={3}
+              className='outline-0 border-0 focus:outline-0 focus:ring-0 block w-full rounded-md py-3 text-gray-900 ring-0 placeholder:text-gray-400 sm:text-sm sm:leading-6 dark:bg-transparent dark:text-slate-100'
+              defaultValue={note?.description}
+              placeholder='Take a note...'
+            />
+          </div>
+          <div className='mb-4 place-content-center flex items-center'>
             {loading ? (
               <button
                 disabled
@@ -115,11 +150,11 @@ export default function Form() {
                     fill='currentColor'
                   />
                 </svg>
-                saving note...
+                {note ? "updating note..." : "saving note..."}
               </button>
             ) : (
               <button className='w-1/2 shadow-xl py-2.5 px-4 text-sm font-semibold rounded text-white bg-red-600 hover:bg-red-700 focus:outline-none'>
-                save note
+                {note ? "update note" : "save note"}
               </button>
             )}
           </div>

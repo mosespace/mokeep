@@ -3,7 +3,7 @@ import "./globals.css";
 import { Toaster } from "sonner";
 import AuthProvider from "@/context/AuthProvider";
 import { Nav } from "@/components/Nav";
-import { Footer } from "@/components/Footer";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,10 +17,9 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <body className={inter.className}>
         <AuthProvider>
-          <Nav />
-
+          {/* <Nav /> */}
           {children}
-          <Footer />
+          {/* <Footer /> */}
         </AuthProvider>
         <Toaster position='top-center' expand={false} richColors closeButton />
       </body>
