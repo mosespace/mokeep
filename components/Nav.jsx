@@ -13,6 +13,9 @@ export const Nav = () => {
   if (pathname === `/dashboard/${userId}` || pathname === `/dashboard`) {
     return null;
   }
+  if (pathname.startsWith("/dashboard") && pathname !== "/dashboard") {
+    return null;
+  }
 
   return (
     <div className='fixed top-0 right-0 left-0 z-[230] bg-slate-50'>
