@@ -16,9 +16,11 @@ export default async function page() {
   const userData = await getData(`user/${userId}`);
 
   return (
-    <div className='h-full flex flex-col gap-8 justify-start items-center px-16 py-8 w-full overflow-hidden'>
+    <>
       <Form />
-      <GridSection userData={userData} />
-    </div>
+      <div className='h-full flex flex-col gap-8 justify-start items-center lg:px-16 px-4 py-8 w-full overflow-hidden'>
+        <GridSection userData={userData} />
+      </div>
+    </>
   );
 }

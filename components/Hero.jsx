@@ -15,7 +15,7 @@ export default function Hero() {
   // Function to handle click outside the login form
   const handleClickOutsideLoginForm = (event) => {
     // Check if the click is outside the login form area
-    if (login && !event.target.closest(".mx-8")) {
+    if (login && !event.target.closest(".toggle")) {
       setLogin(false); // Set login to false
     }
   };
@@ -36,8 +36,8 @@ export default function Hero() {
 
   if (login) {
     return (
-      <div className='bg-red-600/30 backdrop-blur-sm absolute top-0 left-0 right-0 z-[230] px-4 flex items-center justify-center h-screen'>
-        <div className='mx-8'>
+      <div className='bg-pink-600/30 backdrop-blur-sm absolute z-[230] px-4 flex items-center justify-center h-screen w-full overflow-hidden'>
+        <div className='toggle'>
           <LoginForm />
         </div>
       </div>

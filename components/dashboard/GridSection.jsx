@@ -21,7 +21,7 @@ export default function GridSection(userData) {
   };
 
   return (
-    <div className='container flex flex-col justify-between h-full max-w-6xl px-10 mx-auto xl:px-0 mt-20'>
+    <div className='container flex flex-col justify-between h-full lg:max-w-6xl lg:px-10 mx-auto xl:px-0 lg:mt-20'>
       <h2 className='mb-1 text-3xl font-extrabold leading-tight text-gray-900'>
         Your Notes
       </h2>

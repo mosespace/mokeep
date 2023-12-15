@@ -71,10 +71,10 @@ export default function Form({ note }) {
 
   return (
     <div
-      className={`overflow-hidden max-w-2xl top-0 ${
+      className={`overflow-hidden px-4 pt-8 items-center right-0 max-w-2xl top-0 z-50 ${
         isExpanded
-          ? "expanded w-full max-w-2xl border-2 border-red-500 rounded-md h-auto shadow-lg bg-white fixed left-1/4 transform z-50 mt-10"
-          : "w-full fixed top-0 left-1/2 transform -translate-x-1/2 z-50 mt-10 bg-white"
+          ? "expanded max-w-2xl border-2 border-red-500 rounded-md h-auto shadow-lg bg-white fixed left-1/4 transform z-50 mt-10"
+          : "sm:w-full sm:fixed md:fixed md:top-0 md:left-1/2 md:transform md:-translate-x-1/2 md:z-50 md:mt-10"
       }`}
     >
       <h1
