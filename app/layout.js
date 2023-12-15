@@ -17,9 +17,9 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <body className={inter.className}>
         <AuthProvider>
-          {/* <Nav /> */}
+          <Nav />
           {children}
-          {/* <Footer /> */}
+          <Footer />
         </AuthProvider>
         <Toaster position='top-center' expand={false} richColors closeButton />
       </body>
