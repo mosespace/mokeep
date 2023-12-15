@@ -38,7 +38,7 @@ export const Nav = () => {
               Mo<span className='font-light'>Keep</span>
             </span>
           </Link>
-          <ul className='flex items-center hidden space-x-8 lg:flex'>
+          <ul className='md:flex items-center hidden space-x-8 lg:flex'>
             <li>
               <Link
                 href='/'
