@@ -113,11 +113,12 @@ export default function LoginForm() {
               Remember me
             </label>
           </div>
-          <div className='text-sm'>
+          {/* Forgot password */}
+          {/* <div className='text-sm'>
             <Link href='/' className='text-red-600 hover:text-red-500'>
               Forgot your password?
             </Link>
-          </div>
+          </div> */}
         </div>
 
         {/* Loading */}
@@ -153,12 +154,12 @@ export default function LoginForm() {
             </button>
           )}
         </div>
-        <p className='my-10 text-sm text-gray-400 text-center'>
+        {/* <p className='my-10 text-sm text-gray-400 text-center'>
           or continue with
-        </p>
+        </p> */}
 
         {/* Social Media */}
-        <div className='space-x-6 flex justify-center'>
+        {/* <div className='space-x-6 flex justify-center'>
           <button type='button' className='border-none outline-none'>
             <svg
               xmlns='http:www.w3.org/2000/svg'
@@ -224,7 +225,7 @@ export default function LoginForm() {
               ></path>
             </svg>
           </button>
-        </div>
+        </div> */}
       </form>
     </div>
   );

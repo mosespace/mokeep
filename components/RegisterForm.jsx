@@ -203,14 +203,15 @@ export default function RegisterForm({ field_names }) {
                   Remember me
                 </label>
               </div>
-              <div className='text-sm'>
+              {/* Forgot Password */}
+              {/* <div className='text-sm'>
                 <Link
                   href='jajvascript:void(0);'
                   className='text-red-600 hover:text-red-500'
                 >
                   Forgot your password?
                 </Link>
-              </div>
+              </div> */}
             </div>
             <div className='!mt-10'>
               {loading ? (
@@ -244,7 +245,8 @@ export default function RegisterForm({ field_names }) {
                 </button>
               )}
             </div>
-            <p className='my-10 text-sm text-gray-400 text-center'>
+            {/* Social Media */}
+            {/* <p className='my-10 text-sm text-gray-400 text-center'>
               or continue with
             </p>
             <div className='space-x-6 flex justify-center'>
@@ -313,7 +315,7 @@ export default function RegisterForm({ field_names }) {
                   ></path>
                 </svg>
               </button>
-            </div>
+            </div> */}
           </form>
         </div>
       </div>
