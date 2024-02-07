@@ -37,7 +37,7 @@ export default async function Footer() {
               className='w-8 text-teal-accent-400'
             /> */}
             <span className='text-xl font-bold tracking-wide  text-red-600'>
-              Mo<span className='font-light'>Keep</span>
+              Desis<span className='font-light'>Hub</span>
             </span>
           </Link>
           <div className='mt-6 lg:max-w-sm'>
@@ -118,14 +118,14 @@ export default async function Footer() {
             </Link>
           </div>
           <p className='mt-4 text-sm text-gray-500'>
-            Discover how we do keep your notes safe with these essential tips...
+            Discover how we do Hub your notes safe with these essential tips...
           </p>
         </div>
       </div>
       <div className='flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row'>
         <p className='text-sm text-gray-600'>
-          © Copyright 2020 <span className='text-red-600 font-bold'>Mo</span>
-          <span className='text-red-600 font-light'>Keep</span>. All rights
+          © Copyright 2020 <span className='text-red-600 font-bold'>Desis</span>
+          <span className='text-red-600 font-light'>Hub</span>. All rights
           reserved.
         </p>
         <ul className='flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row'>

@@ -33,7 +33,7 @@ export const Nav = () => {
     },
   ];
   return (
-    <>
+    <div className='flex flex-col'>
       <div className='dark:bg-slate-900 dark:border-gray-700'>
         <div className='px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
           <div className='relative flex items-center justify-between'>
@@ -51,7 +51,7 @@ export const Nav = () => {
               className='w-8 text-teal-accent-400'
             /> */}
               <span className='text-xl font-bold tracking-wide  text-red-600'>
-                Mo<span className='font-light'>Keep</span>
+                Desis<span className='font-light'>Hub</span>
               </span>
             </Link>
             <ul className='md:flex items-center hidden space-x-8 lg:flex'>
@@ -114,7 +114,7 @@ export const Nav = () => {
                       />
                     </div> */}
                       <span className='text-xl font-bold tracking-wide  text-red-600'>
-                        Mo<span className='font-light'>Keep</span>
+                        Desis<span className='font-light'>Hub</span>
                       </span>
                       <div>
                         <button
@@ -167,6 +167,6 @@ export const Nav = () => {
         </div>
       </div>
       <StickyNav />
-    </>
+    </div>
   );
 };
