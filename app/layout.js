@@ -18,20 +18,15 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <body className={inter.className}>
         <AuthProvider>
-          {/* <div className='flex flex-col'></div>
-          <div className='flex w-full'>
-            <Nav />
-            <div className='bg-gray-50 dark:bg-slate-900'>
+          <div className='flex lg:flex-row flex-col w-full'>
+            <div className='md:w-64 md:block hidden overflow-hidden'>
               <SideBar />
             </div>
-          </div> */}
-          <div className='flex'>
-            <div className='w-64'>
-              <SideBar />
-            </div>
-            <div className='flex flex-col'>
+            <div className='flex flex-col overflow-hidden'>
               <Nav />
-              {children}
+              <div className='px-4 py-8 my-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 min-h-screen'>
+                {children}
+              </div>
               <Footer />
             </div>
           </div>

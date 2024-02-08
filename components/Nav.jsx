@@ -21,11 +21,11 @@ export const Nav = () => {
   const links = [
     {
       title: "Notes",
-      link: "/notes",
+      link: "/",
     },
     {
-      title: "Use-Ful Links",
-      link: "/use-full-links",
+      title: "UseFul Links",
+      link: "/useful-links",
     },
     {
       title: "YouTube Videos",
