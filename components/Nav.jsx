@@ -17,6 +17,9 @@ export const Nav = () => {
   if (pathname.startsWith("/dashboard") && pathname !== "/dashboard") {
     return null;
   }
+  if (pathname.startsWith("/admin")) {
+    return null;
+  }
 
   const links = [
     {
