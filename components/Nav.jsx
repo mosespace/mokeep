@@ -1,9 +1,9 @@
 "use client";
-import { useSession } from "next-auth/react";
-import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import Image from "next/image";
 import { useState } from "react";
+import { useSession } from "next-auth/react";
+import { usePathname } from "next/navigation";
 import StickyNav from "./(frontend)/StickyNav";
 
 export const Nav = () => {
@@ -37,22 +37,17 @@ export const Nav = () => {
       <div className='dark:bg-slate-900 dark:border-gray-700'>
         <div className='px-4 py-2 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
           <div className='relative flex items-center justify-between'>
-            <Link
-              href='/'
-              aria-label='Company'
-              title='Company Name'
-              className='inline-flex items-center'
-            >
-              {/* <Image
-              width={96}
-              height={96}
-              src='/vercel.svg'
-              alt=''
-              className='w-8 text-teal-accent-400'
-            /> */}
-              <span className='text-xl font-bold tracking-wide  text-[#FF57C3]'>
+            <Link href='/' className='inline-flex items-center'>
+              <Image
+                width={500}
+                height={310}
+                src='/logo-red.png'
+                alt='desishub-coding-school'
+                className='w-[4.5rem] h-12 object-coverk'
+              />
+              {/* <span className='text-xl font-bold tracking-wide  text-[#FF57C3]'>
                 Desis<span className='font-light'>Hub</span>
-              </span>
+              </span> */}
             </Link>
             <ul className='md:flex items-center hidden space-x-8 lg:flex'>
               {links.map((link, i) => (

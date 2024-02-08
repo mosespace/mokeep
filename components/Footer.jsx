@@ -5,6 +5,7 @@ import { getServerSession } from "next-auth";
 import { FaFacebookSquare } from "react-icons/fa";
 import { authOptions } from "@/utils/authOptions";
 import { BsTwitterX, BsInstagram } from "react-icons/bs";
+import Image from "next/image";
 
 export default async function Footer() {
   const session = await getServerSession(authOptions);
@@ -23,24 +24,19 @@ export default async function Footer() {
     <div className='px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 bg-[#0D1224]'>
       <div className='grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4'>
         <div className='sm:col-span-2'>
-          <Link
-            href='/'
-            aria-label='Company'
-            title='Company'
-            className='inline-flex items-start'
-          >
-            {/* <Image
-              width={96}
-              height={96}
-              src='/vercel.svg'
-              alt=''
-              className='w-8 text-teal-accent-400'
-            /> */}
-            <span className='text-xl font-bold tracking-wide  text-[#FF57C3]'>
+          <Link href='/' className='inline-flex items-start'>
+            <Image
+              width={500}
+              height={310}
+              src='/logo-red.png'
+              alt='desishub-coding-school'
+              className='w-[4.5rem] h-12 object-coverk'
+            />
+            {/* <span className='text-xl font-bold tracking-wide  text-[#FF57C3]'>
               Desis<span className='font-light'>Hub</span>
-            </span>
+            </span> */}
           </Link>
-          <div className='mt-6 lg:max-w-sm'>
+          <div className='mt-4 lg:max-w-sm'>
             <p className='text-sm text-slate-50'>
               Discover peace of mind with our cutting-edge note safety features.
               Your information is secure with end-to-end encryption, password
@@ -61,9 +57,7 @@ export default async function Footer() {
             <p className='mr-1 text-slate-50'>Phone:</p>
             <Link
               href='tel:850-123-5021'
-              aria-label='Our phone'
-              title='Our phone'
-              className='transition-colors duration-300 text-[#FF57C3] hover:text-deep-purple-800'
+              className='transition-colors duration-300 text-slate-50 hover:text-deep-purple-800'
             >
               +256-770-9811
             </Link>
@@ -72,8 +66,7 @@ export default async function Footer() {
             <p className='mr-1 text-slate-50'>Email:</p>
             <Link
               href='mailto:kiskayemoses@gmail.com'
-              aria-label='Our email'
-              className='transition-colors duration-300 text-[#FF57C3] hover:text-deep-purple-800'
+              className='transition-colors duration-300 text-slate-50 hover:text-deep-purple-800'
             >
               info@mokeep.com
             </Link>
@@ -83,10 +76,7 @@ export default async function Footer() {
             <Link
               href='https://www.google.com/maps'
               target='_blank'
-              rel='noopener noreferrer'
-              aria-label='Our address'
-              title='Our address'
-              className='transition-colors duration-300 text-[#FF57C3] hover:text-deep-purple-800'
+              className='transition-colors duration-300 text-slate-50 hover:text-deep-purple-800'
             >
               312 Fourth Street, Kampala-Ug
             </Link>
