@@ -50,7 +50,7 @@ export const Nav = () => {
               alt=''
               className='w-8 text-teal-accent-400'
             /> */}
-              <span className='text-xl font-bold tracking-wide  text-red-600'>
+              <span className='text-xl font-bold tracking-wide  text-[#FF57C3]'>
                 Desis<span className='font-light'>Hub</span>
               </span>
             </Link>
@@ -113,7 +113,7 @@ export const Nav = () => {
                         className='w-[4.5rem] text-teal-accent-400'
                       />
                     </div> */}
-                      <span className='text-xl font-bold tracking-wide  text-red-600'>
+                      <span className='text-xl font-bold tracking-wide  text-[#FF57C3]'>
                         Desis<span className='font-light'>Hub</span>
                       </span>
                       <div>
