@@ -3,17 +3,12 @@ import { NextResponse } from "next/server";
 
 export async function POST(request) {
   try {
-    const { title,
-    SubCategoryId} = await request.json();
-    //  console.log({ title,
-    //   categoryId,
-    //   SubCategoryId})
+    const { title, SubCategoryId } = await request.json();
     const existingTopic = await db.topic.findFirst({
-        where: {
-          title: title,
-        },
-      });
-    // console.log(existingtopic)
+      where: {
+        title: title,
+      },
+    });
     if (existingTopic) {
       return NextResponse.json(
         {
@@ -30,11 +25,11 @@ export async function POST(request) {
       data: {
         title,
         subCategory: {
-          connect: { id: SubCategoryId } 
-        }
+          connect: { id: SubCategoryId },
+        },
       },
     });
-// console.log(topic)
+    // console.log(topic)
     return NextResponse.json({
       data: {
         topic,
@@ -54,23 +49,26 @@ export async function POST(request) {
   }
 }
 export async function GET(request) {
-    try {
-      const  topic = await db.topic.findMany({
-        orderBy: {
-         createdAt : "desc" 
-        },
-      });
-      return NextResponse.json(topic);
-    } catch (error) {
-      console.log(error);
-      return NextResponse.json(
-        {
-          error,
-          message: "failed to fetch topic",
-        },
-        {
-         status: 500,
-        }
-      );
-    }
+  try {
+    const topics = await db.topic.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
+      include: {
+        subCategory: true,
+      },
+    });
+    return NextResponse.json(topics);
+  } catch (error) {
+    console.log(error);
+    return NextResponse.json(
+      {
+        error,
+        message: "failed to fetch a topic",
+      },
+      {
+        status: 500,
+      }
+    );
   }
+}

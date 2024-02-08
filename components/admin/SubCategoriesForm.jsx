@@ -2,12 +2,13 @@
 import { useState } from "react";
 import { Button } from "../ui/button";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 import SelectInput from "./formInputs/SelectOptions";
 import { TextInputs } from "./formInputs/TextInputs";
 import adminApiRequest from "@/utils/adminApiRequest";
 
 export function SubCategoriesForm({ initialData, categories }) {
-  // console.log(initialData)
+  // console.log(initialData);
   const [loading, setLoading] = useState(false);
   const [loading2, setLoading2] = useState(false);
   const {
@@ -18,6 +19,8 @@ export function SubCategoriesForm({ initialData, categories }) {
   } = useForm({
     defaultValues: initialData ? initialData : "",
   });
+
+  const router = useRouter();
 
   async function onSubmit(data) {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
@@ -33,10 +36,13 @@ export function SubCategoriesForm({ initialData, categories }) {
       setLoading,
       apiUrl,
       data,
-      toastName: "SubCategory",
+      toastName: "Sub Category",
       reset,
       method,
     });
+    if (initialData) {
+      router.push("/admin/subCategory");
+    }
     reset();
   }
 

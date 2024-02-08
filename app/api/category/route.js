@@ -3,13 +3,13 @@ import { NextResponse } from "next/server";
 
 export async function POST(request) {
   try {
-    const { description,title } = await request.json();
+    const { description, title } = await request.json();
     //  console.log({ description,title })
     const existingCategory = await db.category.findFirst({
-        where: {
-          title: title,
-        },
-      });
+      where: {
+        title: title,
+      },
+    });
     // console.log(existingCategory)
     if (existingCategory) {
       return NextResponse.json(
@@ -29,7 +29,7 @@ export async function POST(request) {
         title,
       },
     });
-// console.log(category)
+    // console.log(category)
     return NextResponse.json({
       data: {
         category,
@@ -49,23 +49,23 @@ export async function POST(request) {
   }
 }
 export async function GET(request) {
-    try {
-      const  categories = await db.category.findMany({
-        orderBy: {
-         createdAt : "desc" 
-        },
-      });
-      return NextResponse.json(categories);
-    } catch (error) {
-      console.log(error);
-      return NextResponse.json(
-        {
-          error,
-          message: "failed to fetch categories",
-        },
-        {
-         status: 500,
-        }
-      );
-    }
+  try {
+    const categories = await db.category.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+    return NextResponse.json(categories);
+  } catch (error) {
+    console.log(error);
+    return NextResponse.json(
+      {
+        error,
+        message: "failed to fetch categories",
+      },
+      {
+        status: 500,
+      }
+    );
   }
+}
