@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 
 export default function AdminHeader() {
-    const [activeLink, setActiveLink] = useState("/admin/category");
+    const [activeLink, setActiveLink] = useState("");
 
     const navigation = [
         {
@@ -24,6 +24,9 @@ export default function AdminHeader() {
        
     ];
 
+    const handleLinkClick = (href) => {
+        setActiveLink(href);
+    };
     useEffect(() => {
         const handlePathChange = () => {
             setActiveLink(window.location.pathname);
@@ -51,7 +54,7 @@ export default function AdminHeader() {
                             <a
                                 href={item.href}
                                 className="py-2.5 px-4 rounded-lg duration-150 text-sm hover:text-indigo-600 hover:bg-gray-50 active:bg-gray-100 font-medium"
-                                onClick={() => setActiveLink(item.href)}
+                                onClick={() => handleLinkClick(item.href)}
                             >
                                 {item.name}
                             </a>
