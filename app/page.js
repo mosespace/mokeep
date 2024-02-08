@@ -2,13 +2,14 @@ import Hero from "@/components/Hero";
 import { Faq } from "@/components/Faq";
 import { Feature } from "@/components/Feature";
 import { Pricing } from "@/components/Pricing";
-import { Statistic } from "@/components/Statistics";
 import Dash from "@/components/(frontend)/Dash";
+import { Statistic } from "@/components/Statistics";
 
 export default function page() {
   return (
-    <div className='bg-slate-50 min-h-screen'>
+    <div className='min-h-screen'>
       {/* <Dash /> */}
+      <Hero />
 
       {/* <Feature /> */}
       {/* <Pricing /> */}
