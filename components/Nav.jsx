@@ -7,8 +7,6 @@ import { usePathname } from "next/navigation";
 import StickyNav from "./(frontend)/StickyNav";
 
 export const Nav = () => {
-  const currentPath = usePathname();
-
   const { data: session } = useSession();
   const userId = session?.user?.id;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,9 +17,21 @@ export const Nav = () => {
   if (pathname.startsWith("/dashboard") && pathname !== "/dashboard") {
     return null;
   }
-  if (currentPath.startsWith("/admin")) {
-    return null;
-  }
+
+  const links = [
+    {
+      title: "Notes",
+      link: "/",
+    },
+    {
+      title: "UseFul Links",
+      link: "/useful-links",
+    },
+    {
+      title: "YouTube Videos",
+      link: "/youtube-videos",
+    },
+  ];
   return (
     <div className='flex flex-col'>
       <div className='dark:bg-slate-900 dark:border-gray-700'>

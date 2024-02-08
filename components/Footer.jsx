@@ -6,6 +6,7 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { authOptions } from "@/utils/authOptions";
 import { BsTwitterX, BsInstagram } from "react-icons/bs";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 export default async function Footer() {
   const session = await getServerSession(authOptions);
