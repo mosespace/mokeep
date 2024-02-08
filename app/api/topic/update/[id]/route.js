@@ -11,7 +11,9 @@ export async function PATCH(request, { params: { id } }) {
       },
       data: {
         title,
-        SubCategoryId,
+        subCategory: {
+          connect: { id: SubCategoryId },
+        },
       },
     });
     // console.log(updatedTopic)

@@ -40,10 +40,10 @@ export function SubCategoriesForm({ initialData, categories }) {
       reset,
       method,
     });
+    reset();
     if (initialData) {
       router.push("/admin/subCategory");
     }
-    reset();
   }
 
   return (

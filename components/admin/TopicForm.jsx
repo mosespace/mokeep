@@ -5,8 +5,10 @@ import { Button } from "../ui/button";
 import { TextInputs } from "./formInputs/TextInputs";
 import { useState } from "react";
 import adminApiRequest from "@/utils/adminApiRequest";
+import { useRouter } from "next/navigation";
 
 export function TopicForm({ catagories, initialData, subCatagories }) {
+  // console.log(initialData);
   const [loading, setLoading] = useState(false);
   const [loading2, setLoading2] = useState(false);
   const {
@@ -15,8 +17,15 @@ export function TopicForm({ catagories, initialData, subCatagories }) {
     reset,
     formState: { errors },
   } = useForm({
-    defaultValues: initialData ? initialData : "",
+    defaultValues: initialData
+      ? {
+          title: initialData.title,
+          SubCategoryId: initialData.subCategory.id, // Set default SubCategoryId to initialData.subCategory.id
+        }
+      : {},
   });
+
+  const router = useRouter();
 
   async function onSubmit(data) {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
@@ -37,6 +46,9 @@ export function TopicForm({ catagories, initialData, subCatagories }) {
       method,
     });
     reset();
+    if (initialData) {
+      router.push("/admin/topics");
+    }
   }
   return (
     <form

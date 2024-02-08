@@ -39,10 +39,10 @@ export function CategoryForm({ initialData }) {
       reset,
       method,
     });
+    reset();
     if (initialData) {
       router.push("/admin/category");
     }
-    reset();
   }
 
   return (
