@@ -3,13 +3,13 @@ import { NextResponse } from "next/server";
 
 export async function POST(request) {
   try {
-    const {categoryId,title } = await request.json();
+    const { categoryId, title } = await request.json();
     //  console.log({ categoryId,title  })
     const existingSubCategory = await db.subCategory.findFirst({
-        where: {
-          title: title,
-        },
-      });
+      where: {
+        title: title,
+      },
+    });
     // console.log(existingSubCategory)
     if (existingSubCategory) {
       return NextResponse.json(
@@ -29,7 +29,7 @@ export async function POST(request) {
         categoryId,
       },
     });
-// console.log(subCategory)
+    // console.log(subCategory)
     return NextResponse.json({
       data: {
         subCategory,
@@ -49,23 +49,23 @@ export async function POST(request) {
   }
 }
 export async function GET(request) {
-    try {
-      const  categories = await db.subCategory.findMany({
-        orderBy: {
-         createdAt : "desc" 
-        },
-      });
-      return NextResponse.json(categories);
-    } catch (error) {
-      console.log(error);
-      return NextResponse.json(
-        {
-          error,
-          message: "failed to fetch categories",
-        },
-        {
-         status: 500,
-        }
-      );
-    }
+  try {
+    const subcategories = await db.subCategory.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+    return NextResponse.json(subcategories);
+  } catch (error) {
+    console.log(error);
+    return NextResponse.json(
+      {
+        error,
+        message: "failed to fetch categories",
+      },
+      {
+        status: 500,
+      }
+    );
   }
+}
