@@ -5,9 +5,11 @@ import { getServerSession } from "next-auth";
 import { FaFacebookSquare } from "react-icons/fa";
 import { authOptions } from "@/utils/authOptions";
 import { BsTwitterX, BsInstagram } from "react-icons/bs";
+import { usePathname } from "next/navigation";
 
 export default async function Footer() {
   const session = await getServerSession(authOptions);
+  // const currentPath = usePathname();
 
   const userId = session?.user?.id;
 
@@ -15,10 +17,12 @@ export default async function Footer() {
   const url = new URL(_headers.get("x-url"));
   const pathname = url.pathname;
   // console.log(pathname);
-  if (pathname === `/dashboard` || pathname === `/dashboard/${userId} `) {
+  if (pathname === `/dashboard` || pathname === `/dashboard/${userId} ` || pathname === `/admin` || pathname === `/admin/category` || pathname === `/admin/topic` || pathname === `/admin/notes`) {
     return null;
   }
-
+  // if (currentPath.startsWith("/admin")) {
+  //   return null;
+  // }
   return (
     <div className='px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
       <div className='grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4'>

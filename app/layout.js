@@ -9,13 +9,14 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "login with | credentials",
-  description: "Created by Kisakye Moses using Nextjs 14.04",
+  description: "Created by Collinz Dev || Kisakya",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <body className={inter.className}>
+      <Toaster position='top-center' reverseOrder={false} />
         <AuthProvider>
           <Nav />
           {children}

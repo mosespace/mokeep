@@ -8,42 +8,57 @@ datasource db {
 }
 
 model User {
-  id             String   @id @default(auto()) @map("_id") @db.ObjectId
-  firstName      String?
-  secondName     String?
-  email          String   @unique
-  password       String
-  notes          Note[]
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  firstName  String?
+  secondName String?
+  email      String   @unique
+  password   String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 }
 
 model Category {
-  id             String   @id @default(auto()) @map("_id") @db.ObjectId
-  name           String
-  topics         Topic[]
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+  id          String        @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String
+  subCategory SubCategory[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  Notes       Notes[]
+}
+
+model SubCategory {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  title      String
+  topics     Topic[]
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  Category   Category? @relation(fields: [categoryId], references: [id])
+  categoryId String?   @db.ObjectId
+  Notes      Notes[]
 }
 
 model Topic {
-  id             String   @id @default(auto()) @map("_id") @db.ObjectId
-  title          String
-  categoryId     String   @db.ObjectId
-  category       Category @relation(fields: [categoryId], references: [id])
-  notes          Note[]
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+  id            String      @id @default(auto()) @map("_id") @db.ObjectId
+  title         String
+  subCategoryId String      @db.ObjectId
+  subCategory   SubCategory @relation(fields: [subCategoryId], references: [id])
+  notes         Notes[]
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
 }
 
-model Note {
-  id             String    @id @default(auto()) @map("_id") @db.ObjectId
-  title          String
-  content        String
-  userId         String    @db.ObjectId
-  user           User      @relation(fields: [userId], references: [id])
-  topic          Topic     @relation(fields: [topicId], references: [id])
-  topicId        String    @db.ObjectId
-  updatedAt      DateTime  @updatedAt
-  createdAt      DateTime  @default(now())
+model Notes {
+  id            String       @id @default(auto()) @map("_id") @db.ObjectId
+  title         String
+  content       String
+  description   String
+  topic         Topic        @relation(fields: [topicId], references: [id])
+  topicId       String       @db.ObjectId
+  category      Category?    @relation(fields: [categoryId], references: [id])
+  categoryId    String?      @db.ObjectId
+  subCategory   SubCategory? @relation(fields: [subCategoryId], references: [id])
+  subCategoryId String?      @db.ObjectId
+  updatedAt     DateTime     @updatedAt
+  createdAt     DateTime     @default(now())
 }
