@@ -3,13 +3,8 @@ import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import { CiMenuBurger } from "react-icons/ci";
 
-export default function AdminSideBar() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
-
+export default function AdminSideBar({isSidebarOpen , setIsSidebarOpen ,toggleSidebar}) {
+ 
   useEffect(() => {
     const closeSidebar = (e) => {
 
@@ -30,7 +25,7 @@ export default function AdminSideBar() {
     <div className=''>
       <button
         type="button"
-        className="text-gray-500 hover:text-gray-600"
+        className="text-gray-500 hover:text-gray-600 hidden"
         onClick={toggleSidebar}
         aria-label="Toggle navigation"
       >
