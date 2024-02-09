@@ -21,21 +21,19 @@ export default function AdminHeader() {
             href: "/admin/notes",
             name: "Notes"
         },
-       
     ];
 
     const handleLinkClick = (href) => {
         setActiveLink(href);
+        localStorage.setItem('activeLink', href); 
     };
+
     useEffect(() => {
-        const handlePathChange = () => {
-            setActiveLink(window.location.pathname);
-        };
-        window.addEventListener('popstate', handlePathChange);
-        return () => {
-            window.removeEventListener('popstate', handlePathChange);
-        };
-    }, []);
+        const storedActiveLink = localStorage.getItem('activeLink');
+        if (storedActiveLink) {
+            setActiveLink(storedActiveLink);
+        }
+    }, []); 
 
     return (
         <div className="max-w-screen-xl mx-auto px-4 pt-4 md:px-8">
@@ -53,7 +51,7 @@ export default function AdminHeader() {
                         <li key={idx} className={`py-2 border-b-2 ${activeLink === item.href ? "border-indigo-600 text-indigo-600" : "border-white text-gray-500"}`}>
                             <a
                                 href={item.href}
-                                className="py-2.5 px-4 rounded-lg duration-150 text-sm hover:text-indigo-600 hover:bg-gray-50 active:bg-gray-100 font-medium"
+                                className="py-2.5 px-4 rounded-lg duration-150 text-sm hover:text-indigo-600 hover:bg-gray-50 active:bg-gray-100 font-medium shrink-0"
                                 onClick={() => handleLinkClick(item.href)}
                             >
                                 {item.name}

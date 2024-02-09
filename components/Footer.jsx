@@ -10,7 +10,6 @@ import Image from "next/image";
 
 export default async function Footer() {
   const session = await getServerSession(authOptions);
-  // const currentPath = usePathname();
 
   const userId = session?.user?.id;
 
