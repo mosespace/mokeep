@@ -24,7 +24,7 @@ export default function SelectInput({
           name={name}
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-0 block w-full p-2.5"
         >
-          {options.map((option, i) => {
+          {options?.map((option, i) => {
             return (
               <option key={i} value={option.id}>
                 {option.title}

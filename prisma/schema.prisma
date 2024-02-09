@@ -72,3 +72,18 @@ model YouTube {
   VedioLink   String
   courseLink  String
 }
+
+model Links {
+  id           String         @id @default(auto()) @map("_id") @db.ObjectId
+  title        String
+  linkCategory LinkCategory[]
+}
+
+model LinkCategory {
+  id      String  @id @default(auto()) @map("_id") @db.ObjectId
+  title   String
+  link    String
+  decription String
+  Links   Links?  @relation(fields: [linksId], references: [id])
+  linksId String? @db.ObjectId
+}
