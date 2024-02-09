@@ -1,14 +1,14 @@
 "use client";
-import { useForm } from "react-hook-form";
+import { useEffect, useState } from "react";
+import ReactQuill from "react-quill";
 import { Button } from "../ui/button";
+import "react-quill/dist/quill.snow.css";
+import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 import SelectInput from "./formInputs/SelectOptions";
 import { TextInputs } from "./formInputs/TextInputs";
-import { CustomTextArea } from "./formInputs/TextArea";
-import { useState } from "react";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
 import adminApiRequest from "@/utils/adminApiRequest";
-import { useRouter } from "next/navigation";
+import { CustomTextArea } from "./formInputs/TextArea";
 
 export function NotesForm({ categories, subCategory, topics, initialData }) {
   const modules = {
@@ -39,6 +39,9 @@ export function NotesForm({ categories, subCategory, topics, initialData }) {
   const [loading, setLoading] = useState(false);
   const [loading2, setLoading2] = useState(false);
   const [value, setValue] = useState("");
+  console.log(initialData);
+  // console.log(topics);
+  // console.log(categories);
 
   const {
     register,
@@ -46,10 +49,25 @@ export function NotesForm({ categories, subCategory, topics, initialData }) {
     reset,
     formState: { errors },
   } = useForm({
-    defaultValues: initialData ? initialData : "",
+    defaultValues: initialData
+      ? {
+          title: initialData.title,
+          SubCategoryId: initialData.subCategory.id,
+          topicsId: initialData.topicId,
+          categoryId: initialData.categoryId,
+          description: initialData.description,
+        }
+      : {},
   });
 
   const router = useRouter();
+
+  useEffect(() => {
+    // Set the value of the Quill editor when initialData changes
+    if (initialData) {
+      setValue(initialData.content);
+    }
+  }, [initialData]);
 
   async function onSubmit(data) {
     data.value = value;
@@ -71,9 +89,9 @@ export function NotesForm({ categories, subCategory, topics, initialData }) {
       method,
     });
     reset();
-    // if (initialData) {
-    //   router.push("/admin/topics");
-    // }
+    if (initialData) {
+      router.push("/admin/topics");
+    }
   }
 
   return (
@@ -167,7 +185,9 @@ export function NotesForm({ categories, subCategory, topics, initialData }) {
             Loading...
           </button>
         ) : (
-          <Button type='submit'>Create Notes</Button>
+          <Button type='submit'>
+            {initialData ? "Update Notes" : "Create Notes"}
+          </Button>
         )}
       </div>
     </form>
