@@ -3,7 +3,8 @@ import { NextResponse } from "next/server";
 
 export async function POST(request) {
   try {
-    const { title, categoryId, subCategoryId, topicsId, description, value } = await request.json();
+    const { title, categoryId, subCategoryId, topicsId, description, value } =
+      await request.json();
 
     if (!topicsId) {
       return NextResponse.json(
@@ -39,16 +40,16 @@ export async function POST(request) {
       data: {
         title,
         category: {
-          connect: { id: categoryId }
+          connect: { id: categoryId },
         },
         subCategory: {
-          connect: { id: subCategoryId }
+          connect: { id: subCategoryId },
         },
         topic: {
-          connect: { id: topicsId }
+          connect: { id: topicsId },
         },
         description,
-        content: value
+        content: value,
       },
     });
 
@@ -71,25 +72,24 @@ export async function POST(request) {
   }
 }
 
-
 export async function GET(request) {
-    try {
-      const  notes = await db.notes.findMany({
-        orderBy: {
-         createdAt : "desc" 
-        },
-      });
-      return NextResponse.json(notes);
-    } catch (error) {
-      console.log(error);
-      return NextResponse.json(
-        {
-          error,
-          message: "failed to fetch notes",
-        },
-        {
-         status: 500,
-        }
-      );
-    }
+  try {
+    const notes = await db.notes.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+    return NextResponse.json(notes);
+  } catch (error) {
+    console.log(error);
+    return NextResponse.json(
+      {
+        error,
+        message: "failed to fetch notes",
+      },
+      {
+        status: 500,
+      }
+    );
   }
+}
