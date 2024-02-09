@@ -17,7 +17,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <AuthProvider>
+        {children}
+        {/* <AuthProvider>
           <div className='flex lg:flex-row flex-col w-full'>
             <div className='md:w-64 md:block hidden overflow-hidden'>
               <SideBar />
@@ -31,7 +32,7 @@ export default function RootLayout({ children }) {
             </div>
           </div>
         </AuthProvider>
-        <Toaster position='top-center' expand={false} richColors closeButton />
+        <Toaster position='top-center' expand={false} richColors closeButton /> */}
       </body>
     </html>
   );
