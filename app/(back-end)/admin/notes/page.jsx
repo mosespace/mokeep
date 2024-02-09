@@ -1,20 +1,13 @@
 import React from "react";
 import { getData } from "@/utils/getData";
-import { NotesForm } from "@/components/admin/NotesForm";
 import GridSection from "@/components/dashboard/GridSection";
+import Head from "@/components/admin/Head";
 
 export default async function page() {
-  const categories = await getData("category");
-  const subCategory = await getData("subCategory");
-  const topics = await getData("topic");
   const notes = await getData("notes");
   return (
     <div className='flex flex-col'>
-      <NotesForm
-        topics={topics}
-        categories={categories}
-        subCategory={subCategory}
-      />
+     <Head title={"NOTE : Before creating notes first choose the subCategories , categories , and the topics"} link={"/admin/notes/create"}/>
       <GridSection data={notes}/>
     </div>
   );
