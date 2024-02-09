@@ -39,7 +39,7 @@ export function NotesForm({ categories, subCategory, topics, initialData }) {
   const [loading, setLoading] = useState(false);
   const [loading2, setLoading2] = useState(false);
   const [value, setValue] = useState("");
-  console.log(initialData);
+  // console.log(initialData);
   // console.log(topics);
   // console.log(categories);
 

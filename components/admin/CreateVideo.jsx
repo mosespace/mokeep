@@ -7,7 +7,7 @@ import { useState } from "react";
 import adminApiRequest from "@/utils/adminApiRequest";
 import { useRouter } from "next/navigation";
 
-export function CategoryForm({ initialData }) {
+export function CreateVideo({ initialData }) {
   const [loading, setLoading] = useState(false);
   const [loading2, setLoading2] = useState(false);
   const {
@@ -27,21 +27,21 @@ export function CategoryForm({ initialData }) {
     setLoading2(true);
     const method = initialData ? "PATCH" : "POST";
     const apiUrl = initialData
-      ? `${baseUrl}/api/category/update/${initialData.id}`
-      : `${baseUrl}/api/category`;
+      ? `${baseUrl}/api/youtube/update/${initialData.id}`
+      : `${baseUrl}/api/youtube`;
     // console.log(data)
     adminApiRequest({
       setLoading2,
       setLoading,
       apiUrl,
       data,
-      toastName: "Category",
+      toastName: "Youtube",
       reset,
       method,
     });
     reset();
     if (initialData) {
-      router.push("/admin/category");
+      router.push("/admin/youtube-videos");
     }
   }
 
@@ -51,21 +51,48 @@ export function CategoryForm({ initialData }) {
       className='flex flex-col space-y-8 w-full lg:w-[80%] mt-4 border border-gray-900 p-5 rounded-lg'
     >
       <TextInputs
-        placeholder='Enter Category title'
-        label='Category title'
+        placeholder='Enter Video title'
+        label='Video Title'
         name='title'
+        type='text'
+        width='max-w-full'
+        errors={errors}
+        register={register}
+      />
+
+      <TextInputs
+        placeholder='Enter Video Link'
+        label='Video Link'
+        name='VedioLink'
+        width='max-w-full'
         type='text'
         errors={errors}
         register={register}
       />
-
+      <TextInputs
+        placeholder='Enter Course Link'
+        label='Course Link'
+        name='courseLink'
+        width='max-w-full'
+        type='text'
+        errors={errors}
+        register={register}
+      />
       <CustomTextArea
-        label='Description'
+        label='Video Description'
         name='description'
         register={register}
         errors={errors}
       />
-
+      <TextInputs
+        placeholder='@johndoe'
+        label='Video Link'
+        name='author'
+        width='max-w-full'
+        type='text'
+        errors={errors}
+        register={register}
+      />
       <div>
         {loading ? (
           <button
@@ -94,7 +121,7 @@ export function CategoryForm({ initialData }) {
           </button>
         ) : (
           <Button type='submit'>
-            {initialData ? "Update category" : "Create category"}
+            {initialData ? "Update video" : "Create video"}
           </Button>
         )}
       </div>
