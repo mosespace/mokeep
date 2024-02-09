@@ -12,7 +12,7 @@ async function makeRequest(setLoading, endpoint, data, resourceName, reset) {
       body: JSON.stringify(data),
     });
 
-    console.log(data);
+    // console.log(data);
 
     const responseData = await response.json();
 

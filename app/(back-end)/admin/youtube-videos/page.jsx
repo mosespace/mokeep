@@ -5,7 +5,7 @@ import { getData } from "@/utils/getData";
 
 export default async function page() {
   const videos = await getData("youtube");
-  console.log(videos);
+//   console.log(videos);
   return (
     <div>
       <Head title='Youtube Video' link='/admin/youtube-videos/create' />

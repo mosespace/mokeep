@@ -2,7 +2,7 @@ import db from "@/utils/db";
 import { NextResponse } from "next/server";
 
 export async function PATCH(request, { params: { id } }) {
-  console.log(id);
+  // console.log(id);
   try {
     const { title, categoryId, subCategoryId, topicsId, description, value } =
       await request.json();

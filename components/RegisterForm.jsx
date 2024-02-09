@@ -34,7 +34,7 @@ export default function RegisterForm({ field_names }) {
         body: JSON.stringify(data),
       });
 
-      console.log(data);
+      // console.log(data);
 
       const responseData = await response.json();
 
