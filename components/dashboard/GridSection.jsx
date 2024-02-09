@@ -6,7 +6,7 @@ import { useClipboard } from "use-clipboard-copy";
 
 export default function GridSection(data) {
   const notes = data.data;
-  console.log(notes);
+  // console.log(notes);
 
   // console.log(notes);
   // Separate the first two notes and the rest
@@ -43,31 +43,17 @@ export default function GridSection(data) {
                     </Link>
 
                     <div className='flex gap-2'>
-                      <button
-                        onClick={() => handleCopy(note.description)}
-                        data-action='clipboard#copy'
-                        type='button'
-                        className='inline-flex cursor-pointer items-center justify-center gap-1 rounded-lg bg-slate-200 p-2 text-slate-800 transition-colors hover:bg-slate-300 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800'
+                      <Link
+                        href={`/admin/notes/${note.id}`}
+                        className='align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-6 rounded-lg bg-green-600 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none'
                       >
-                        <svg
-                          xmlns='http://www.w3.org/2000/svg'
-                          className='h-5 w-5'
-                          viewBox='0 0 24 24'
-                          strokeWidth='2'
-                          stroke='currentColor'
-                          fill='none'
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                        >
-                          <path
-                            stroke='none'
-                            d='M0 0h24v24H0z'
-                            fill='none'
-                          ></path>
-                          <path d='M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2'></path>
-                          <path d='M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z'></path>
-                        </svg>
-                        <span className='sr-only'>Copy</span>
+                        Edit
+                      </Link>
+                      <button
+                        className='align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-6 rounded-lg bg-red-600 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none'
+                        type='button'
+                      >
+                        Delete
                       </button>
                     </div>
                   </div>
@@ -106,32 +92,18 @@ export default function GridSection(data) {
                       {note.title}
                     </h3>
                   </Link>
-                  <div className='flex gap-2'>
-                    <button
-                      onClick={() => handleCopy(note.description)}
-                      data-action='clipboard#copy'
-                      type='button'
-                      className='inline-flex cursor-pointer items-center justify-center gap-1 rounded-lg bg-slate-200 p-2 text-slate-800 transition-colors hover:bg-slate-300 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-800'
+                  <div className='flex flex-col gap-2'>
+                    <Link
+                      href={`/admin/notes/${note.id}`}
+                      className='align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-6 rounded-lg bg-green-600 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none'
                     >
-                      <svg
-                        xmlns='http://www.w3.org/2000/svg'
-                        className='h-5 w-5'
-                        viewBox='0 0 24 24'
-                        strokeWidth='2'
-                        stroke='currentColor'
-                        fill='none'
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                      >
-                        <path
-                          stroke='none'
-                          d='M0 0h24v24H0z'
-                          fill='none'
-                        ></path>
-                        <path d='M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2'></path>
-                        <path d='M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z'></path>
-                      </svg>
-                      <span className='sr-only'>Copy</span>
+                      Edit
+                    </Link>
+                    <button
+                      className='align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-2 px-6 rounded-lg bg-red-600 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none'
+                      type='button'
+                    >
+                      Delete
                     </button>
                   </div>
                 </div>
