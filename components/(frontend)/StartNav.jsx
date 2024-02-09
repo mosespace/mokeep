@@ -4,9 +4,9 @@ import Image from "next/image";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
-import StickyNav from "./(frontend)/StickyNav";
+import StickyNav from "./StickyNav";
 
-export const Nav = () => {
+export const StartNav = () => {
   const { data: session } = useSession();
   const userId = session?.user?.id;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,9 +18,6 @@ export const Nav = () => {
     return null;
   }
   if (pathname.startsWith("/admin")) {
-    return null;
-  }
-  if (pathname.startsWith("/start")) {
     return null;
   }
 
