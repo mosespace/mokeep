@@ -4,9 +4,9 @@ import { toast } from "sonner";
 import DeleteBtn from "./DeleteBtn";
 import { useClipboard } from "use-clipboard-copy";
 
-export default function GridSection(userData) {
-  const { notes } = userData.userData;
-  // console.log(notes);
+export default function GridSection(data) {
+  const notes = data.data;
+  console.log(notes);
 
   // console.log(notes);
   // Separate the first two notes and the rest
@@ -36,14 +36,13 @@ export default function GridSection(userData) {
                 <span className='absolute top-0 left-0 w-full h-full mt-1 ml-1 bg-indigo-500 rounded-lg'></span>
                 <div className='relative h-full p-5 bg-white border-2 border-indigo-500 rounded-lg'>
                   <div className='flex items-center -mt-1 justify-between'>
-                    <Link href={`/dashboard/${note.id}`}>
+                    <Link href={`/admin/notes/${note.id}`}>
                       <h3 className='my-2 ml-3 text-lg font-bold text-gray-800'>
                         {note.title}
                       </h3>
                     </Link>
 
                     <div className='flex gap-2'>
-                      <DeleteBtn userData={userData} noteId={note.id} />
                       <button
                         onClick={() => handleCopy(note.description)}
                         data-action='clipboard#copy'
@@ -72,13 +71,13 @@ export default function GridSection(userData) {
                       </button>
                     </div>
                   </div>
-                  <Link href={`/dashboard/${note.id}`}>
+                  <Link href={`/admin/notes/${note.id}`}>
                     <p className='mt-3 mb-1 text-xs font-medium text-indigo-500 uppercase'>
                       ------------
                     </p>
                   </Link>
 
-                  <Link href={`/dashboard/${note.id}`}>
+                  <Link href={`/admin/notes/${note.id}`}>
                     <p className='text-to-be-copied mb-2 text-gray-600'>
                       {note.description}
                     </p>
@@ -102,13 +101,12 @@ export default function GridSection(userData) {
                 style={{ borderColor: `${note.color || "blue"}-400` }}
               >
                 <div className='flex items-center -mt-1 justify-between'>
-                  <Link href={`/dashboard/${note.id}`}>
+                  <Link href={`/admin/notes/${note.id}`}>
                     <h3 className='my-2 ml-3 text-lg font-bold text-gray-800'>
                       {note.title}
                     </h3>
                   </Link>
                   <div className='flex gap-2'>
-                    <DeleteBtn userData={userData} noteId={note.id} />
                     <button
                       onClick={() => handleCopy(note.description)}
                       data-action='clipboard#copy'
@@ -137,7 +135,7 @@ export default function GridSection(userData) {
                     </button>
                   </div>
                 </div>
-                <Link href={`/dashboard/${note.id}`}>
+                <Link href={`/admin/notes/${note.id}`}>
                   <p
                     className={`mt-3 mb-1 text-xs font-medium text-${
                       note.color || "blue"
@@ -146,7 +144,7 @@ export default function GridSection(userData) {
                     ------------
                   </p>
                 </Link>
-                <Link href={`/dashboard/${note.id}`}>
+                <Link href={`/admin/notes/${note.id}`}>
                   <p className='mb-2 text-gray-600'>{note.description}</p>
                 </Link>
               </div>
