@@ -17,22 +17,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <body className={inter.className}>
-        {children}
-        {/* <AuthProvider>
-          <div className='flex lg:flex-row flex-col w-full'>
-            <div className='md:w-64 md:block hidden overflow-hidden'>
-              <SideBar />
-            </div>
-            <div className='flex flex-col overflow-hidden'>
-              <Nav />
-              <div className='px-4 py-10 my-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 min-h-screen'>
-                {children}
-              </div>
+        <AuthProvider>
+          <div>
+            <Nav />
+            {children}
+            <div className='bg-[#0D1224]'>
               <Footer />
             </div>
           </div>
         </AuthProvider>
-        <Toaster position='top-center' expand={false} richColors closeButton /> */}
+        <Toaster position='top-center' expand={false} richColors closeButton />
       </body>
     </html>
   );

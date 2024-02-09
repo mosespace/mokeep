@@ -2,14 +2,18 @@
 import Link from "next/link";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Router } from "lucide-react";
 
 export default function Hero() {
   const [login, setLogin] = useState(false);
   // Function to handle login state
+  const router = useRouter();
+
   const handleLogin = () => {
-    setLogin(!login); // Toggle the login state
+    // setLogin(!login); // Toggle the login state
+    router.push("/start");
   };
 
   // Function to handle click outside the login form
