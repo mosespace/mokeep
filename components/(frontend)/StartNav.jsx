@@ -6,7 +6,8 @@ import { useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
 import StickyNav from "./StickyNav";
 
-export const StartNav = () => {
+export const StartNav = ({ courses }) => {
+  // console.log(courses);
   const { data: session } = useSession();
   const userId = session?.user?.id;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -46,18 +47,14 @@ export const StartNav = () => {
                 height={310}
                 src='/logo-red.png'
                 alt='desishub-coding-school'
-                className='w-[4.5rem] h-12 object-coverk'
+                className='w-[4.5rem] h-12'
               />
-              {/* <span className='text-xl font-bold tracking-wide  text-[#FF57C3]'>
-                Desis<span className='font-light'>Hub</span>
-              </span> */}
             </Link>
             <ul className='md:flex items-center hidden space-x-8 lg:flex'>
               {links.map((link, i) => (
                 <li key={i}>
                   <Link
                     href={link.link}
-                    aria-label='Our product'
                     className='font-medium tracking-wide  text-slate-950 transition-colors duration-200 hover:text-teal-accent-400'
                   >
                     {link.title}
@@ -68,9 +65,7 @@ export const StartNav = () => {
               <li>
                 <Link
                   href='/register'
-                  className='inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-600 hover:bg-red-700 focus:shadow-outline focus:outline-none focus:ring active:text-red-500'
-                  aria-label='Sign up'
-                  title='Sign up'
+                  className='inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-[#FF57C3]'
                 >
                   Sign up
                 </Link>
@@ -148,9 +143,7 @@ export const StartNav = () => {
                         <li>
                           <Link
                             href='/register'
-                            className='inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-600 hover:bg-red-700 focus:shadow-outline focus:outline-none'
-                            aria-label='Sign up'
-                            title='Sign up'
+                            className='inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-[#FF57C]'
                           >
                             Sign up
                           </Link>
@@ -164,7 +157,7 @@ export const StartNav = () => {
           </div>
         </div>
       </div>
-      <StickyNav />
+      <StickyNav courses={courses} />
     </div>
   );
 };

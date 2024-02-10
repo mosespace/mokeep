@@ -3,7 +3,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useState, useEffect } from "react";
 
-export default function StickyNav() {
+export default function StickyNav({ courses }) {
   const [isSticky, setSticky] = useState(false);
 
   useEffect(() => {
@@ -17,72 +17,6 @@ export default function StickyNav() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  const courses = [
-    {
-      title: "HTML-5",
-      link: "/html-5",
-    },
-    {
-      title: "CSS",
-      link: "/css",
-    },
-    {
-      title: "BootStrap",
-      link: "/bootstrap",
-    },
-    {
-      title: "JavaScript",
-      link: "/javascript",
-    },
-    {
-      title: "MY-SQL",
-      link: "/my-sql",
-    },
-    {
-      title: "PHP",
-      link: "/php",
-    },
-    {
-      title: "Python",
-      link: "/python",
-    },
-    {
-      title: "React",
-      link: "/react",
-    },
-    {
-      title: "Tailwind",
-      link: "/tailwind",
-    },
-    {
-      title: "Angular",
-      link: "/angular",
-    },
-    {
-      title: "TypeScript",
-      link: "/typescript",
-    },
-    {
-      title: "C",
-      link: "/c-programming",
-    },
-    {
-      title: "C++",
-      link: "/c++-programming",
-    },
-    {
-      title: "Git",
-      link: "/git",
-    },
-    {
-      title: "GitHub",
-      link: "/git-hub",
-    },
-
-    //    HTML CSS JAVASCRIPT SQL PYTHON JAVA PHP HOW TO W3.CSS C C++ C# BOOTSTRAP REACT MYSQL JQUERY EXCEL XML DJANGO NUMPY PANDAS NODEJS R TYPESCRIPT ANGULAR GIT POSTGRESQL MONGODB ASP AI GO KOTLIN SASS VUE DSA GEN AI SCIPY AWS CYBERSECURITY DATA SCIENCE      ❯
-    //    Learn to Code
-  ];
 
   const pathname = usePathname();
 
@@ -107,7 +41,9 @@ export default function StickyNav() {
             >
               <Link
                 className='inline-flex items-center gap-x-2 hover:text-gray-500 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600'
-                href={`start/${course.title.toLowerCase()}`}
+                href={`/start/${course.title
+                  .toLowerCase()
+                  .replace(/\s+/g, "-")}/?id=${course.id}`}
               >
                 {course.title}
               </Link>
