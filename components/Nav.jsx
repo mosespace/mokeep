@@ -71,7 +71,7 @@ export const Nav = ({ courses }) => {
               <li>
                 <Link
                   href='/register'
-                  className='inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-#FF57C3'
+                  className='inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-[#FF57C3]'
                 >
                   Sign up
                 </Link>
