@@ -73,17 +73,19 @@ model YouTube {
   courseLink  String
 }
 
-model Links {
-  id           String         @id @default(auto()) @map("_id") @db.ObjectId
-  title        String
-  linkCategory LinkCategory[]
+model LinkCategory {
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  links       Link[]
 }
 
-model LinkCategory {
-  id      String  @id @default(auto()) @map("_id") @db.ObjectId
-  title   String
-  link    String
-  decription String
-  Links   Links?  @relation(fields: [linksId], references: [id])
-  linksId String? @db.ObjectId
+model Link {
+  id            String     @id @default(auto()) @map("_id") @db.ObjectId
+  title         String
+  link          String
+  description   String
+  linkCategory  LinkCategory?  @relation(fields: [linkCategoryId], references: [id])
+  linkCategoryId String?    @db.ObjectId
+  updatedAt     DateTime   @updatedAt
+  createdAt     DateTime   @default(now())
 }

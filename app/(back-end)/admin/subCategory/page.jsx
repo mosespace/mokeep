@@ -1,8 +1,6 @@
 import React from "react";
 import { getData } from "@/utils/getData";
-import Categories from "@/components/admin/Categories";
 import SubCategory from "@/components/admin/SubCategory";
-import { SubCategoriesForm } from "@/components/admin/SubCategoriesForm";
 import Head from "@/components/admin/Head";
 
 export default async function page() {

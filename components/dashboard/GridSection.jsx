@@ -6,7 +6,7 @@ import { useClipboard } from "use-clipboard-copy";
 
 export default function GridSection(data) {
   const notes = data.data;
-  console.log(notes);
+  
 
   // console.log(notes);
   // Separate the first two notes and the rest
