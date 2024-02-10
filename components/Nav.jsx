@@ -6,7 +6,7 @@ import { useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
 import StickyNav from "./(frontend)/StickyNav";
 
-export const Nav = () => {
+export const Nav = ({ courses }) => {
   const { data: session } = useSession();
   const userId = session?.user?.id;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -71,9 +71,7 @@ export const Nav = () => {
               <li>
                 <Link
                   href='/register'
-                  className='inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-600 hover:bg-red-700 focus:shadow-outline focus:outline-none focus:ring active:text-red-500'
-                  aria-label='Sign up'
-                  title='Sign up'
+                  className='inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-[#FF57C3]'
                 >
                   Sign up
                 </Link>
@@ -151,9 +149,7 @@ export const Nav = () => {
                         <li>
                           <Link
                             href='/register'
-                            className='inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-600 hover:bg-red-700 focus:shadow-outline focus:outline-none'
-                            aria-label='Sign up'
-                            title='Sign up'
+                            className='inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-[#FF57C3]'
                           >
                             Sign up
                           </Link>
@@ -167,7 +163,7 @@ export const Nav = () => {
           </div>
         </div>
       </div>
-      <StickyNav />
+      <StickyNav courses={courses} />
     </div>
   );
 };

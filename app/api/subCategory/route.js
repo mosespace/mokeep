@@ -51,11 +51,12 @@ export async function POST(request) {
 export async function GET(request) {
   try {
     const subcategories = await db.subCategory.findMany({
-      orderBy: {
-        createdAt: "desc",
-      },
+      // orderBy: {
+      //   createdAt: "desc",
+      // },
       include: {
         Category: true,
+        topics: true,
       },
     });
     return NextResponse.json(subcategories);
