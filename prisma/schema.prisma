@@ -68,9 +68,11 @@ model YouTube {
   author      String
   title       String
   description String
-  image       String
+  image       String?
   VedioLink   String
   courseLink  String
+  updatedAt   DateTime     @updatedAt
+  createdAt   DateTime     @default(now())
 }
 
 model LinkCategory {

@@ -30,7 +30,7 @@ export default function LoginForm() {
         ...data,
       });
 
-      console.log(res);
+      // console.log(res);
       if (!res.ok) {
         // Handle the case where the response is not okay
         // const errorData = await res.json();

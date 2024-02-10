@@ -4,24 +4,27 @@ import { NextResponse } from "next/server";
 export async function PATCH(request, { params: { id } }) {
   // console.log(id);
   try {
-    const { categoryId, title } = await request.json();
-    const updatedSubCategory = await db.subCategory.update({
+    const { title, VedioLink, author,courseLink, description } = await request.json();
+    const updatedVideo = await db.YouTube.update({
       where: {
         id,
       },
       data: {
-        categoryId,
         title,
+        VedioLink,
+        courseLink,
+        description,
+        author,
       },
     });
-    // console.log(updatedSubCategory)
-    return NextResponse.json(updatedSubCategory);
+    // console.log(updatedVideo)
+    return NextResponse.json(updatedVideo);
   } catch (error) {
     console.log(error);
     return NextResponse.json(
       {
         error,
-        message: "Failed to update category",
+        message: "Failed to update a video",
       },
       {
         status: 500,
