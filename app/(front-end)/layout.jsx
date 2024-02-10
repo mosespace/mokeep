@@ -6,7 +6,8 @@ export default async function Layout({ children }) {
   try {
     const courses = await getData("category");
     const subCategories = await getData("subCategory");
-    // console.log("Courses", subCategories);
+    // console.log("Courses", courses);
+    // console.log("Sub Courses", subCategories);
     return (
       <div className='flex lg:flex-row flex-col w-full'>
         <div className='md:w-64 md:block hidden overflow-hidden'>

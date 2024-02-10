@@ -1,11 +1,12 @@
 "use client";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export default function StickyNav({ courses }) {
   const [isSticky, setSticky] = useState(false);
 
+  // I used this to handel the toggle position fixed when the user scrolls the window!
   useEffect(() => {
     const handleScroll = () => {
       setSticky(window.scrollY > 0);
