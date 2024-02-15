@@ -3,7 +3,8 @@ import { NextResponse } from "next/server";
 
 export async function POST(request) {
   try {
-    const { description, title } = await request.json();
+    const { title, slug, description, price, discount, status } =
+      await request.json();
     //  console.log({ description,title })
     const existingCategory = await db.category.findFirst({
       where: {
@@ -25,8 +26,12 @@ export async function POST(request) {
 
     const category = await db.category.create({
       data: {
-        description,
         title,
+        slug,
+        description,
+        price,
+        discount,
+        status,
       },
     });
     // console.log(category)

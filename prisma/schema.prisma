@@ -89,3 +89,12 @@ model LinkCategory {
   Links   Links?  @relation(fields: [linksId], references: [id])
   linksId String? @db.ObjectId
 }
+model Course {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  slug        String
+  decription  String
+  price       Float
+  discount    Float
+  status      Boolean
+}

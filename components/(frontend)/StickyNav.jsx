@@ -22,15 +22,15 @@ export default function StickyNav({ courses }) {
   const pathname = usePathname();
 
   // Check if the current route is "/"
-  const isHomePage = pathname === "/";
+  const isHomePage = pathname === "/" || pathname.startsWith("/p");
 
   return (
     <main id='content' role='main'>
       <nav
         className={`${
           isSticky
-            ? "fixed top-0 left-0 md:left-64 right-0 z-50 mx-auto bg-[#0D1224] text-sm font-medium text-white ring-1 border-t shadow-sm shadow-gray-100 pt-6 md:pb-6 -mt-px"
-            : "sticky -top-px bg-white text-sm font-medium text-black ring-1 ring-gray-900 ring-opacity-5 border-t shadow-sm shadow-gray-100 pt-6 md:pb-6 -mt-px"
+            ? "fixed top-0 left-0 md:left-64 right-0 z-50 mx-auto bg-green-500 text-sm font-medium text-white ring-1 border-t shadow-sm shadow-gray-100 pt-4 md:pb-4 -mt-px"
+            : "sticky -top-px bg-white text-sm font-medium text-black ring-1 ring-gray-900 ring-opacity-5 border-t shadow-sm shadow-gray-100 pt-4 md:pb-4 -mt-px"
         } ${isHomePage ? "!left-0" : ""}`}
         aria-label='Jump links'
       >

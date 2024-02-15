@@ -22,7 +22,9 @@ export default async function RootLayout({ children }) {
         <AuthProvider>
           <div>
             <Nav courses={courses} />
-            {children}
+            <div className='bg-gradient-to-tk to-[#0D1224]k from-[#12192f]k min-h-screen'>
+              {children}
+            </div>
             <div className='bg-[#0D1224]'>
               <Footer />
             </div>
