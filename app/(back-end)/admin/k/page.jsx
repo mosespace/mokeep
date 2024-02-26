@@ -1,11 +1,10 @@
 "use client";
+import { z } from "zod";
 import Link from "next/link";
+import {} from "@/lib/utils";
+import { toast } from "sonner";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useFieldArray, useForm } from "react-hook-form";
-import { z } from "zod";
-
-import {} from "@/lib/utils";
-// import Form from "@/components/dashboard/Form";
 import {
   Form,
   FormControl,
@@ -23,32 +22,24 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { useState } from "react";
 
 const profileFormSchema = z.object({
-  username: z
-    .string()
-    .min(2, {
-      message: "Username must be at least 2 characters.",
-    })
-    .max(30, {
-      message: "Username must not be longer than 30 characters.",
-    }),
-  email: z
-    .string({
-      required_error: "Please select an email to display.",
-    })
-    .email(),
-  bio: z.string().max(160).min(4),
-  urls: z
-    .array(
-      z.object({
-        value: z.string().url({ message: "Please enter a valid URL." }),
-      })
-    )
-    .optional(),
+  title: z.string().min(2).max(50),
+  price: z.string().min(0),
+  discount: z.string().min(0),
+  description: z.string().min(10).max(500),
+  // bio: z.string().max(160).min(4),
+  // urls: z
+  //   .array(
+  //     z.object({
+  //       value: z.string().url({ message: "Please enter a valid URL." }),
+  //     })
+  //   )
+  //   .optional(),
 });
 
 const defaultValues = {
@@ -66,21 +57,25 @@ export default function ProfileForm() {
     mode: "onChange",
   });
 
-  const { fields, append } = useFieldArray({
-    name: "urls",
-    control: form.control,
-  });
+  // const { fields, append } = useFieldArray({
+  //   name: "urls",
+  //   control: form.control,
+  // });
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+
+    if (file) {
+      setSelectedFile(file);
+    } else {
+      setSelectedFile(null);
+    }
+  };
 
   function onSubmit(data) {
     console.log(data);
-    toast({
-      title: "You submitted the following values:",
-      description: (
-        <pre className='mt-2 w-[340px] rounded-md bg-slate-950 p-4'>
-          <code className='text-white'>{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    });
+    toast.success("You've submitted the your data");
   }
 
   return (
@@ -88,109 +83,90 @@ export default function ProfileForm() {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className='space-y-8 w-[60%] h-[80vh] '
+          className='space-y-8 w-[60%] py-8'
           ss
         >
           <FormField
             control={form.control}
-            name='username'
+            name='title'
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Username</FormLabel>
+                <FormLabel>Course Title</FormLabel>
                 <FormControl>
-                  <Input placeholder='shadcn' {...field} />
+                  <Input placeholder='Complete Python Mastery' {...field} />
                 </FormControl>
                 <FormDescription>
-                  This is your public display name. It can be your real name or
-                  a pseudonym. You can only change this once every 30 days.
+                  This course title will be publicly published and viewed by the
+                  students on the main website. Make it more meaningful
                 </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
           />
+
+          {/* price */}
           <FormField
             control={form.control}
-            name='email'
+            name='price'
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
-                  <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder='Select a verified email to display' />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    <SelectItem value='m@example.com'>m@example.com</SelectItem>
-                    <SelectItem value='m@google.com'>m@google.com</SelectItem>
-                    <SelectItem value='m@support.com'>m@support.com</SelectItem>
-                  </SelectContent>
-                </Select>
+                <FormLabel>Course Price</FormLabel>
+                <FormControl>
+                  <Input type='number' placeholder='$1000' {...field} />
+                </FormControl>
                 <FormDescription>
-                  You can manage verified email addresses in your{" "}
-                  <Link href='/examples/forms'>email settings</Link>.
+                  This course price will be publicly published and viewed by the
+                  students on the main website. Make it more meaningful
                 </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
           />
+
+          {/* discount */}
           <FormField
             control={form.control}
-            name='bio'
+            name='discount'
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Bio</FormLabel>
+                <FormLabel>Course Discount</FormLabel>
+                <FormControl>
+                  <Input type='number' placeholder='$100' {...field} />
+                </FormControl>
+                <FormDescription>
+                  This course price will be publicly published and viewed by the
+                  students on the main website. Make it more meaningful
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          {/* description */}
+          <FormField
+            control={form.control}
+            name='description'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Course Description</FormLabel>
                 <FormControl>
                   <Textarea
-                    placeholder='Tell us a little bit about yourself'
-                    className='resize-none'
+                    placeholder='Tell students a little bit about the course'
+                    className='resize-true'
                     {...field}
                   />
                 </FormControl>
                 <FormDescription>
-                  You can <span>@mention</span> other users and organizations to
-                  link to them.
+                  Here you can talk about other key features and it will be used
+                  for search-engine optimization. Kindly take your time
                 </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
           />
-          <div>
-            {fields.map((field, index) => (
-              <FormField
-                control={form.control}
-                key={field.id}
-                name={`urls.${index}.value`}
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className={index !== 0 && "sr-only"}>
-                      URLs
-                    </FormLabel>
-                    <FormDescription className={index !== 0 && "sr-only"}>
-                      Add links to your website, blog, or social media profiles.
-                    </FormDescription>
-                    <FormControl>
-                      <Input {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            ))}
-            <Button
-              type='button'
-              variant='outline'
-              size='sm'
-              className='mt-2 '
-              onClick={() => append({ value: "" })}
-            >
-              Add URL
-            </Button>
-          </div>
-          <Button type='submit'>Update profile</Button>
+
+          {/* submit */}
+          <Button type='submit'>Create Course</Button>
         </form>
       </Form>
     </div>

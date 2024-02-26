@@ -3,29 +3,29 @@ import React from "react";
 export default function Pricing() {
   return (
     <>
-      <section class='relative overflow-hidden'>
-        <div class='relative flex flex-col max-w-7xl px-8 py-12 mx-auto lg:py-24'>
+      <section className='relative overflow-hidden'>
+        <div className='relative flex flex-col max-w-7xl px-8 py-12 mx-auto lg:py-24'>
           <div>
-            <span class='text-xs font-bold tracking-wide text-white uppercase'>
+            <span className='text-xs font-bold tracking-wide text-white uppercase'>
               Pricing
             </span>
-            <p class='mt-8 text-4xl font-semibold tracking-tight text-white lg:text-5xl'>
+            <p className='mt-8 text-4xl font-semibold tracking-tight text-white lg:text-5xl'>
               Equip your business
-              <span class='md:block'> with world class software</span>
+              <span className='md:block'> with world className software</span>
             </p>
-            <p class='max-w-xl mt-4 text-lg text-gray-400'>
+            <p className='max-w-xl mt-4 text-lg text-gray-400'>
               Every plan includes every feature, and can scale as your team
               does.
             </p>
           </div>
-          <div class='grid grid-cols-1 gap-8 mt-12 lg:ap-2 lg:grid-cols-3'>
-            <div class='lg:order-last'>
-              <div class='flex flex-col'>
-                <div class='p-8 shadow-2xl rounded-3xl bg-gradient-to-b from-pink-400 via-pink-400 to-pink-600 ring-1 ring-white/10'>
-                  <div class='flex items-center justify-between'>
-                    <div class='flex items-center gap-3'>
+          <div className='grid grid-cols-1 gap-8 mt-12 lg:ap-2 lg:grid-cols-3'>
+            <div className='lg:order-last'>
+              <div className='flex flex-col'>
+                <div className='p-8 shadow-2xl rounded-3xl bg-gradient-to-b from-pink-400 via-pink-400 to-pink-600 ring-1 ring-white/10'>
+                  <div className='flex items-center justify-between'>
+                    <div className='flex items-center gap-3'>
                       <svg
-                        class='w-8 h-8 text-black rounded-full'
+                        className='w-8 h-8 text-black rounded-full'
                         viewBox='0 0 280 280'
                         fill='none'
                         xmlns='http://www.w3.org/2000/svg'
@@ -55,50 +55,53 @@ export default function Pricing() {
                           </clipPath>
                         </defs>
                       </svg>
-                      <p class='text-base font-medium text-white uppercase'>
+                      <p className='text-base font-medium text-white uppercase'>
                         GOLDEN UNICORN
                       </p>
                     </div>
                     <p>
-                      <span class='text-lg font-medium text-white uppercase lg:text-xl'>
+                      <span className='text-lg font-medium text-white uppercase lg:text-xl'>
                         $35
                       </span>
-                      <span class='text-base font-medium text-white'> /mo</span>
+                      <span className='text-base font-medium text-white'>
+                        {" "}
+                        /mo
+                      </span>
                     </p>
                   </div>
-                  <p class='mt-8 text-sm font-medium text-white'>
+                  <p className='mt-8 text-sm font-medium text-white'>
                     If you're a small business or a startup, this plan is
                     designed to cater to your needs. It offers a balance of
                     features.
                   </p>
-                  <div class='flex mt-6'>
+                  <div className='flex mt-6'>
                     <a
-                      class='items-center justify-between inline-flex w-full font-medium px-6 py-2.5 text-center text-black duration-200 bg-white rounded-xl h-14 hover:bg-white/20 hover:border-white hover:text-white focus:outline-none focus-visible:outline-black text-base focus-visible:ring-black'
+                      className='items-center justify-between inline-flex w-full font-medium px-6 py-2.5 text-center text-black duration-200 bg-white rounded-xl h-14 hover:bg-white/20 hover:border-white hover:text-white focus:outline-none focus-visible:outline-black text-base focus-visible:ring-black'
                       href='#'
                     >
                       Get starter <span>→</span>
                     </a>
                   </div>
                 </div>
-                <div class='px-8'>
+                <div className='px-8'>
                   <div>
-                    <p class='mt-4 text-lg font-medium text-white uppercase lg:mt-8'>
+                    <p className='mt-4 text-lg font-medium text-white uppercase lg:mt-8'>
                       Features
                     </p>
                     <ul
-                      class='gap-4 mt-4 space-y-3 text-gray-300 list-none'
+                      className='gap-4 mt-4 space-y-3 text-gray-300 list-none'
                       role='list'
                     >
-                      <li class='flex items-center gap-2'>
+                      <li className='flex items-center gap-2'>
                         <svg
                           xmlns='http://www.w3.org/2000/svg'
-                          class='w-5 h-5 text-gray-500 icon icon-tabler icon-tabler-circle-check'
+                          className='w-5 h-5 text-gray-500 icon icon-tabler icon-tabler-circle-check'
                           viewBox='0 0 24 24'
-                          stroke-width='2'
+                          strokeWidth='2'
                           stroke='currentColor'
                           fill='none'
-                          stroke-linecap='round'
-                          stroke-linejoin='round'
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
                         >
                           <path
                             stroke='none'
@@ -110,16 +113,16 @@ export default function Pricing() {
                         </svg>
                         <span> Unlimited deploys</span>
                       </li>
-                      <li class='flex items-center gap-2'>
+                      <li className='flex items-center gap-2'>
                         <svg
                           xmlns='http://www.w3.org/2000/svg'
-                          class='w-5 h-5 text-gray-500 icon icon-tabler icon-tabler-circle-check'
+                          className='w-5 h-5 text-gray-500 icon icon-tabler icon-tabler-circle-check'
                           viewBox='0 0 24 24'
-                          stroke-width='2'
+                          strokeWidth='2'
                           stroke='currentColor'
                           fill='none'
-                          stroke-linecap='round'
-                          stroke-linejoin='round'
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
                         >
                           <path
                             stroke='none'
@@ -131,16 +134,16 @@ export default function Pricing() {
                         </svg>
                         <span> Unlimited members</span>
                       </li>
-                      <li class='flex items-center gap-2'>
+                      <li className='flex items-center gap-2'>
                         <svg
                           xmlns='http://www.w3.org/2000/svg'
-                          class='w-5 h-5 text-gray-500 icon icon-tabler icon-tabler-circle-check'
+                          className='w-5 h-5 text-gray-500 icon icon-tabler icon-tabler-circle-check'
                           viewBox='0 0 24 24'
-                          stroke-width='2'
+                          strokeWidth='2'
                           stroke='currentColor'
                           fill='none'
-                          stroke-linecap='round'
-                          stroke-linejoin='round'
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
                         >
                           <path
                             stroke='none'
@@ -152,16 +155,16 @@ export default function Pricing() {
                         </svg>
                         <span> 20 TB cloud storage</span>
                       </li>
-                      <li class='flex items-center gap-2'>
+                      <li className='flex items-center gap-2'>
                         <svg
                           xmlns='http://www.w3.org/2000/svg'
-                          class='w-5 h-5 text-gray-500 icon icon-tabler icon-tabler-circle-check'
+                          className='w-5 h-5 text-gray-500 icon icon-tabler icon-tabler-circle-check'
                           viewBox='0 0 24 24'
-                          stroke-width='2'
+                          strokeWidth='2'
                           stroke='currentColor'
                           fill='none'
-                          stroke-linecap='round'
-                          stroke-linejoin='round'
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
                         >
                           <path
                             stroke='none'
@@ -173,16 +176,16 @@ export default function Pricing() {
                         </svg>
                         <span> Growth oriented</span>
                       </li>
-                      <li class='flex items-center gap-2'>
+                      <li className='flex items-center gap-2'>
                         <svg
                           xmlns='http://www.w3.org/2000/svg'
-                          class='w-5 h-5 text-gray-500 icon icon-tabler icon-tabler-circle-check'
+                          className='w-5 h-5 text-gray-500 icon icon-tabler icon-tabler-circle-check'
                           viewBox='0 0 24 24'
-                          stroke-width='2'
+                          strokeWidth='2'
                           stroke='currentColor'
                           fill='none'
-                          stroke-linecap='round'
-                          stroke-linejoin='round'
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
                         >
                           <path
                             stroke='none'
@@ -200,12 +203,12 @@ export default function Pricing() {
               </div>
             </div>
             <div>
-              <div class='flex flex-col'>
-                <div class='p-8 rounded-3xl bg-[#1c1f29] ring-1 ring-white/10 shadow-2xl'>
-                  <div class='flex justify-between'>
-                    <div class='flex items-center gap-3'>
+              <div className='flex flex-col'>
+                <div className='p-8 rounded-3xl bg-[#1c1f29] ring-1 ring-white/10 shadow-2xl'>
+                  <div className='flex justify-between'>
+                    <div className='flex items-center gap-3'>
                       <svg
-                        class='w-8 h-8 text-black rounded-full'
+                        className='w-8 h-8 text-black rounded-full'
                         viewBox='0 0 280 280'
                         fill='none'
                         xmlns='http://www.w3.org/2000/svg'
@@ -233,52 +236,52 @@ export default function Pricing() {
                           </clipPath>
                         </defs>
                       </svg>
-                      <p class='text-base font-medium text-white uppercase'>
+                      <p className='text-base font-medium text-white uppercase'>
                         Silver Surfer
                       </p>
                     </div>
                     <p>
-                      <span class='text-lg font-medium text-white uppercase lg:text-xl'>
+                      <span className='text-lg font-medium text-white uppercase lg:text-xl'>
                         $15
                       </span>
-                      <span class='text-base font-medium text-gray-500'>
+                      <span className='text-base font-medium text-gray-500'>
                         {" "}
                         /mo
                       </span>
                     </p>
                   </div>
-                  <p class='mt-8 text-sm font-medium text-gray-300'>
+                  <p className='mt-8 text-sm font-medium text-gray-300'>
                     This plan is ideal for individual users and hobbyists who
                     are looking for essential functionalities to support.
                   </p>
-                  <div class='flex mt-6'>
+                  <div className='flex mt-6'>
                     <a
-                      class='items-center justify-between inline-flex w-full font-medium px-6 py-2.5 text-center text-white duration-200 bg-white/5 border border-white/5 rounded-xl h-14 hover:bg-white/10 hover:border-white/10 focus:outline-none focus-visible:outline-black text-base focus-visible:ring-black'
+                      className='items-center justify-between inline-flex w-full font-medium px-6 py-2.5 text-center text-white duration-200 bg-white/5 border border-white/5 rounded-xl h-14 hover:bg-white/10 hover:border-white/10 focus:outline-none focus-visible:outline-black text-base focus-visible:ring-black'
                       href='#'
                     >
                       Get starter <span>→</span>
                     </a>
                   </div>
                 </div>
-                <div class='px-8'>
+                <div className='px-8'>
                   <div>
-                    <p class='mt-4 text-lg font-medium text-white uppercase lg:mt-8'>
+                    <p className='mt-4 text-lg font-medium text-white uppercase lg:mt-8'>
                       Features
                     </p>
                     <ul
-                      class='order-last gap-4 mt-4 space-y-3 text-gray-300 list-none'
+                      className='order-last gap-4 mt-4 space-y-3 text-gray-300 list-none'
                       role='list'
                     >
-                      <li class='flex items-center gap-2'>
+                      <li className='flex items-center gap-2'>
                         <svg
                           xmlns='http://www.w3.org/2000/svg'
-                          class='w-5 h-5 text-gray-300 icon icon-tabler icon-tabler-circle-check'
+                          className='w-5 h-5 text-gray-300 icon icon-tabler icon-tabler-circle-check'
                           viewBox='0 0 24 24'
-                          stroke-width='2'
+                          strokeWidth='2'
                           stroke='currentColor'
                           fill='none'
-                          stroke-linecap='round'
-                          stroke-linejoin='round'
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
                         >
                           <path
                             stroke='none'
@@ -290,16 +293,16 @@ export default function Pricing() {
                         </svg>
                         <span> 10 deploys</span>
                       </li>
-                      <li class='flex items-center gap-2'>
+                      <li className='flex items-center gap-2'>
                         <svg
                           xmlns='http://www.w3.org/2000/svg'
-                          class='w-5 h-5 text-gray-300 icon icon-tabler icon-tabler-circle-check'
+                          className='w-5 h-5 text-gray-300 icon icon-tabler icon-tabler-circle-check'
                           viewBox='0 0 24 24'
-                          stroke-width='2'
+                          strokeWidth='2'
                           stroke='currentColor'
                           fill='none'
-                          stroke-linecap='round'
-                          stroke-linejoin='round'
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
                         >
                           <path
                             stroke='none'
@@ -311,16 +314,16 @@ export default function Pricing() {
                         </svg>
                         <span>1 members</span>
                       </li>
-                      <li class='flex items-center gap-2'>
+                      <li className='flex items-center gap-2'>
                         <svg
                           xmlns='http://www.w3.org/2000/svg'
-                          class='w-5 h-5 text-gray-300 icon icon-tabler icon-tabler-circle-check'
+                          className='w-5 h-5 text-gray-300 icon icon-tabler icon-tabler-circle-check'
                           viewBox='0 0 24 24'
-                          stroke-width='2'
+                          strokeWidth='2'
                           stroke='currentColor'
                           fill='none'
-                          stroke-linecap='round'
-                          stroke-linejoin='round'
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
                         >
                           <path
                             stroke='none'
@@ -332,16 +335,16 @@ export default function Pricing() {
                         </svg>
                         <span> 5 TB cloud storage</span>
                       </li>
-                      <li class='flex items-center gap-2'>
+                      <li className='flex items-center gap-2'>
                         <svg
                           xmlns='http://www.w3.org/2000/svg'
-                          class='w-5 h-5 text-gray-300 icon icon-tabler icon-tabler-circle-check'
+                          className='w-5 h-5 text-gray-300 icon icon-tabler icon-tabler-circle-check'
                           viewBox='0 0 24 24'
-                          stroke-width='2'
+                          strokeWidth='2'
                           stroke='currentColor'
                           fill='none'
-                          stroke-linecap='round'
-                          stroke-linejoin='round'
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
                         >
                           <path
                             stroke='none'
@@ -353,16 +356,16 @@ export default function Pricing() {
                         </svg>
                         <span> Growth oriented</span>
                       </li>
-                      <li class='flex items-center gap-2'>
+                      <li className='flex items-center gap-2'>
                         <svg
                           xmlns='http://www.w3.org/2000/svg'
-                          class='w-5 h-5 text-gray-300 icon icon-tabler icon-tabler-circle-check'
+                          className='w-5 h-5 text-gray-300 icon icon-tabler icon-tabler-circle-check'
                           viewBox='0 0 24 24'
-                          stroke-width='2'
+                          strokeWidth='2'
                           stroke='currentColor'
                           fill='none'
-                          stroke-linecap='round'
-                          stroke-linejoin='round'
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
                         >
                           <path
                             stroke='none'
@@ -379,13 +382,13 @@ export default function Pricing() {
                 </div>
               </div>
             </div>
-            <div class='lg:order-first'>
-              <div class='flex flex-col'>
-                <div class='p-8 rounded-3xl bg-[#1c1f29] ring-1 ring-white/10 shadow-2xl'>
-                  <div class='flex justify-between'>
-                    <div class='flex items-center gap-3'>
+            <div className='lg:order-first'>
+              <div className='flex flex-col'>
+                <div className='p-8 rounded-3xl bg-[#1c1f29] ring-1 ring-white/10 shadow-2xl'>
+                  <div className='flex justify-between'>
+                    <div className='flex items-center gap-3'>
                       <svg
-                        class='w-8 h-8 text-black rounded-full'
+                        className='w-8 h-8 text-black rounded-full'
                         viewBox='0 0 280 280'
                         fill='none'
                         xmlns='http://www.w3.org/2000/svg'
@@ -413,52 +416,52 @@ export default function Pricing() {
                           </clipPath>
                         </defs>
                       </svg>
-                      <p class='text-base font-medium text-white uppercase'>
+                      <p className='text-base font-medium text-white uppercase'>
                         Starter pack
                       </p>
                     </div>
                     <p>
-                      <span class='text-lg font-medium text-white uppercase lg:text-xl'>
+                      <span className='text-lg font-medium text-white uppercase lg:text-xl'>
                         $5
                       </span>
-                      <span class='text-base font-medium text-gray-500'>
+                      <span className='text-base font-medium text-gray-500'>
                         {" "}
                         /mo
                       </span>
                     </p>
                   </div>
-                  <p class='mt-8 text-sm font-medium text-gray-300'>
+                  <p className='mt-8 text-sm font-medium text-gray-300'>
                     This plan is ideal for individual users and hobbyists who
                     are looking for essential functionalities to support.
                   </p>
-                  <div class='flex mt-6'>
+                  <div className='flex mt-6'>
                     <a
-                      class='items-center justify-between inline-flex w-full font-medium px-6 py-2.5 text-center text-white duration-200 bg-white/5 border border-white/5 rounded-xl h-14 hover:bg-white/10 hover:border-white/10 focus:outline-none focus-visible:outline-black text-base focus-visible:ring-black'
+                      className='items-center justify-between inline-flex w-full font-medium px-6 py-2.5 text-center text-white duration-200 bg-white/5 border border-white/5 rounded-xl h-14 hover:bg-white/10 hover:border-white/10 focus:outline-none focus-visible:outline-black text-base focus-visible:ring-black'
                       href='#'
                     >
                       Get starter <span>→</span>
                     </a>
                   </div>
                 </div>
-                <div class='px-8'>
+                <div className='px-8'>
                   <div>
-                    <p class='mt-4 text-lg font-medium text-white uppercase lg:mt-8'>
+                    <p className='mt-4 text-lg font-medium text-white uppercase lg:mt-8'>
                       Features
                     </p>
                     <ul
-                      class='order-last gap-4 mt-4 space-y-3 text-gray-300 list-none'
+                      className='order-last gap-4 mt-4 space-y-3 text-gray-300 list-none'
                       role='list'
                     >
-                      <li class='flex items-center gap-2'>
+                      <li className='flex items-center gap-2'>
                         <svg
                           xmlns='http://www.w3.org/2000/svg'
-                          class='w-5 h-5 text-gray-300 icon icon-tabler icon-tabler-circle-check'
+                          className='w-5 h-5 text-gray-300 icon icon-tabler icon-tabler-circle-check'
                           viewBox='0 0 24 24'
-                          stroke-width='2'
+                          strokeWidth='2'
                           stroke='currentColor'
                           fill='none'
-                          stroke-linecap='round'
-                          stroke-linejoin='round'
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
                         >
                           <path
                             stroke='none'
@@ -470,16 +473,16 @@ export default function Pricing() {
                         </svg>
                         <span> 10 deploys</span>
                       </li>
-                      <li class='flex items-center gap-2'>
+                      <li className='flex items-center gap-2'>
                         <svg
                           xmlns='http://www.w3.org/2000/svg'
-                          class='w-5 h-5 text-gray-300 icon icon-tabler icon-tabler-circle-check'
+                          className='w-5 h-5 text-gray-300 icon icon-tabler icon-tabler-circle-check'
                           viewBox='0 0 24 24'
-                          stroke-width='2'
+                          strokeWidth='2'
                           stroke='currentColor'
                           fill='none'
-                          stroke-linecap='round'
-                          stroke-linejoin='round'
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
                         >
                           <path
                             stroke='none'
@@ -491,16 +494,16 @@ export default function Pricing() {
                         </svg>
                         <span>1 members</span>
                       </li>
-                      <li class='flex items-center gap-2'>
+                      <li className='flex items-center gap-2'>
                         <svg
                           xmlns='http://www.w3.org/2000/svg'
-                          class='w-5 h-5 text-gray-300 icon icon-tabler icon-tabler-circle-check'
+                          className='w-5 h-5 text-gray-300 icon icon-tabler icon-tabler-circle-check'
                           viewBox='0 0 24 24'
-                          stroke-width='2'
+                          strokeWidth='2'
                           stroke='currentColor'
                           fill='none'
-                          stroke-linecap='round'
-                          stroke-linejoin='round'
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
                         >
                           <path
                             stroke='none'
@@ -512,16 +515,16 @@ export default function Pricing() {
                         </svg>
                         <span> 5 TB cloud storage</span>
                       </li>
-                      <li class='flex items-center gap-2'>
+                      <li className='flex items-center gap-2'>
                         <svg
                           xmlns='http://www.w3.org/2000/svg'
-                          class='w-5 h-5 text-gray-300 icon icon-tabler icon-tabler-circle-check'
+                          className='w-5 h-5 text-gray-300 icon icon-tabler icon-tabler-circle-check'
                           viewBox='0 0 24 24'
-                          stroke-width='2'
+                          strokeWidth='2'
                           stroke='currentColor'
                           fill='none'
-                          stroke-linecap='round'
-                          stroke-linejoin='round'
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
                         >
                           <path
                             stroke='none'
@@ -533,16 +536,16 @@ export default function Pricing() {
                         </svg>
                         <span> Growth oriented</span>
                       </li>
-                      <li class='flex items-center gap-2'>
+                      <li className='flex items-center gap-2'>
                         <svg
                           xmlns='http://www.w3.org/2000/svg'
-                          class='w-5 h-5 text-gray-300 icon icon-tabler icon-tabler-circle-check'
+                          className='w-5 h-5 text-gray-300 icon icon-tabler icon-tabler-circle-check'
                           viewBox='0 0 24 24'
-                          stroke-width='2'
+                          strokeWidth='2'
                           stroke='currentColor'
                           fill='none'
-                          stroke-linecap='round'
-                          stroke-linejoin='round'
+                          strokeLinecap='round'
+                          strokeLinejoin='round'
                         >
                           <path
                             stroke='none'

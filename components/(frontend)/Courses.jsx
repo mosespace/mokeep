@@ -304,9 +304,12 @@ export default function Courses() {
           )}
         </div>
         <Button title='View all courses' link='/courses' />
-        <p class='my-6 text-base text-white'>
+        <p className='my-6 text-base text-white'>
           Not sure where to start? Check out our{" "}
-          <Link class='font-semibold font-pink-600' href='/p/learning-paths'>
+          <Link
+            className='font-semibold font-pink-600'
+            href='/p/learning-paths'
+          >
             learning paths
           </Link>
           .
