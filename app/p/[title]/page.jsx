@@ -21,6 +21,7 @@ import {
 import { FaVideo } from "react-icons/fa";
 
 export default function page({ params: { title } }) {
+  // console.log(title);
   const accordionData = [
     {
       id: "item-1",
@@ -215,7 +216,7 @@ export default function page({ params: { title } }) {
 
   return (
     <div
-      className={`px-4 pt-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 `}
+      className={`px-4 pt-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8`}
     >
       <div className='flex flex-col lg:flex-row items-start justify-between gap-2 relative'>
         <div className='text-white max-w-xl text-center md:text-left pt-5 lg:pt-24'>
@@ -277,7 +278,7 @@ export default function page({ params: { title } }) {
           </div>
         </div>
         <div className='pt-5 lg:pt-24'>
-          <div className='shadow-2xl shadow-gray-50 dark:shadow-none border border-violet-50 dark:border-blue-850 bg-white dark:bg-blue-750 rounded-md relative'>
+          <div className='shadow-2xl shadow-gray-50 dark:shadow-none border border-violet-50 dark:border-blue-850 bg-white dark:bg-blue-700 rounded-md relative'>
             <div className='flex justify-center -translate-y-[1px]'>
               <div className='w-3/4'>
                 <div className='flex flex-row'>

@@ -10,7 +10,7 @@ export default function HeroSection() {
     <>
       <section className='bg-gradient-to-t to-[#0D1224] from-[#12192f]'>
         <div className='flex flex-col items-center justify-center'>
-          <div className='relative items-center w-full pt-12 max-w-7xl lg:pt-36'>
+          <div className='relative flex flex-col items-center w-full pt-12 max-w-7xl lg:pt-36'>
             <div className='max-w-3xl mx-auto text-center'>
               <p className='text-4xl font-extrabold tracking-tight text-white md:text-6xl'>
                 Learning to code
@@ -24,7 +24,7 @@ export default function HeroSection() {
               </p>
             </div>
             <div className='max-w-lg flex justify-center item-center'>
-              <Button title='Chose a premium course' link='' />
+              <Button title='Chose a premium course' link='/' />
             </div>
           </div>
           <Courses />
