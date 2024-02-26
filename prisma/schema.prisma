@@ -93,8 +93,9 @@ model Course {
   id          String  @id @default(auto()) @map("_id") @db.ObjectId
   title       String
   slug        String
-  decription  String
+  image       String
+  description String
   price       Float
   discount    Float
-  status      Boolean
+  comingSoon  Boolean
 }

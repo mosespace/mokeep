@@ -26,12 +26,16 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
+import { Switch } from "@/components/ui/switch";
+import { generateSlug } from "@/utils/generateSlug";
+import ImageInput from "../../../../components/admin/formInputs/ImageInput";
 
 const profileFormSchema = z.object({
-  title: z.string().min(2).max(50),
+  title: z.string().min(2).max(80),
   price: z.string().min(0),
   discount: z.string().min(0),
   description: z.string().min(10).max(500),
+  comingSoon: z.boolean(),
   // bio: z.string().max(160).min(4),
   // urls: z
   //   .array(
@@ -43,11 +47,17 @@ const profileFormSchema = z.object({
 });
 
 const defaultValues = {
-  bio: "I own a computer.",
-  urls: [
-    { value: "https://shadcn.com" },
-    { value: "http://twitter.com/shadcn" },
-  ],
+  title: "",
+  price: "",
+  discount: "",
+  description: "",
+  // Add default value for the switch input
+  comingSoon: false,
+  // Add default values for other fields if needed
+  // urls: [
+  //   { value: "https://shadcn.com" },
+  //   { value: "http://twitter.com/shadcn" },
+  // ],
 };
 
 export default function ProfileForm() {
@@ -62,6 +72,12 @@ export default function ProfileForm() {
   //   control: form.control,
   // });
   const [selectedFile, setSelectedFile] = useState(null);
+  const [comingSoon, setComingSoon] = useState(false); // Initialize comingSoon state as false
+  const [image, setImage] = useState(false);
+
+  const handleComingSoonToggle = () => {
+    setComingSoon(!comingSoon); // Toggling the state of comingSoon switch
+  };
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -74,8 +90,11 @@ export default function ProfileForm() {
   };
 
   function onSubmit(data) {
+    data.comingSoon = comingSoon;
+    data.image = image;
+    data.slug = generateSlug(data.title);
     console.log(data);
-    toast.success("You've submitted the your data");
+    toast.success("Your data has been submitted");
   }
 
   return (
@@ -86,6 +105,13 @@ export default function ProfileForm() {
           className='space-y-8 w-[60%] py-8'
           ss
         >
+          {/* Configure this endpoint in the core js */}
+          <ImageInput
+            imageUrl={image}
+            setImageUrl={setImage}
+            endpoint='courseImage'
+            label='Course Image'
+          />
           <FormField
             control={form.control}
             name='title'
@@ -161,6 +187,19 @@ export default function ProfileForm() {
                   for search-engine optimization. Kindly take your time
                 </FormDescription>
                 <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name='comingSoon'
+            render={({ field }) => (
+              <FormItem>
+                <div className='flex items-center space-x-2'>
+                  <Switch id='airplane-mode' {...field} />
+                  <Label htmlFor='airplane-mode'>Coming Soon</Label>
+                </div>
               </FormItem>
             )}
           />

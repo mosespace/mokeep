@@ -103,7 +103,6 @@ export const authOptions = {
       session.user.id = id;
       session.user.firstName = firstName;
       session.user.secondName = secondName;
-
       // console.log(session.user.id);
       return session;
     },

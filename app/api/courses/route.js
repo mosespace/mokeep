@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 
 export async function POST(req) {
   try {
-    const { description, title } = await request.json();
+    const { title, slug, image, description, price, discount, comingSoon } =
+      await request.json();
     //  console.log({ description,title })
     const existingCourse = await db.course.findFirst({
       where: {
@@ -25,8 +26,13 @@ export async function POST(req) {
 
     const course = await db.course.create({
       data: {
-        description,
         title,
+        slug,
+        image,
+        description,
+        price,
+        discount,
+        comingSoon,
       },
     });
 
