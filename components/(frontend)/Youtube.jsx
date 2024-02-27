@@ -1,9 +1,7 @@
+import { Mic, Play } from "lucide-react";
 import Link from "next/link";
-import React from "react";
 
-export default function Youtube({
-  mainTitle = "Reference or learn From Youtube 🫣",
-}) {
+export default function Youtube({ mainTitle = "Learn From Youtube 🫣" }) {
   const videos = [
     {
       author: "@codewithmoses",
@@ -51,7 +49,7 @@ export default function Youtube({
       title: "Beginner React",
       description:
         "Link software that develops products for software developers and developments.",
-      icon: (
+      image: (
         <svg
           className='w-28 h-28'
           width='56'
@@ -92,7 +90,7 @@ export default function Youtube({
       title: "Beginner NodeJs",
       description:
         "Link software that develops products for software developers and developments.",
-      icon: (
+      image: (
         <svg
           className='w-28 h-28'
           width='56'
@@ -131,10 +129,126 @@ export default function Youtube({
   ];
   return (
     <div>
-      <div className='max-w-[85rem] px-4 py-10 sm:px-6 lg:px-0 lg:py-14 mx-auto'>
-        <h1 className='pb-8 font-bold text-3xl max-w-xs'>{mainTitle}</h1>
-        <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-6'>
-          {videos.map((video, i) => (
+      <div className='px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
+        <div className='w-[90%] max-w-[50rem] mx-auto'>
+          <header className='my-12 text-xl text-center md:my-32'>
+            <Mic className='w-16 h-16 mx-auto mb-12 text-yellow-400 md:w-24 md:h-24' />
+            <h1 className='mb-6 text-2xl flex flex-col font-bold md:text-5xl font-title'>
+              <span>{mainTitle}</span>
+              <span className='text-xl mt-4 text-yellow-400 uppercase md:text-3xl'>
+                The Desishub Podcast
+              </span>
+            </h1>
+            <p className='my-2 text-base md:text-xl'>
+              Join us as we delve into the dynamic worlds of tech, education,
+              and entrepreneurship.
+            </p>
+            <p className='my-2 text-base md:text-xl'>
+              Each youtube-video offers insightful discussions and
+              thought-provoking topics on the latest trends and challenges
+              shaping the tech industry, economy, and beyond.
+            </p>
+          </header>
+
+          <section className='mb-8'>
+            <h2 className='font-bold text-yellow-400'>Latest Episode</h2>
+            <article>
+              <h3 className='mb-4 text-xl font-bold md:text-2xl font-title'>
+                Episode OpenAI's Latest AI Model - Welcome Sora...👋
+              </h3>
+              <div className='flex flex-col items-center gap-2 p-4 mb-4 bg-purple-800 rounded-md md:gap-8 md:flex-row'>
+                <img
+                  src='https://images.podigee-cdn.net/0x,sFo6-YK9azK_nNAIFpcDphyAUTV3ItbzYZA_uexZsWHk=/https://main.podigee-cdn.net/uploads/u59580/941d0099-e6c5-4f87-81c1-85c7037e7d3a.jpg'
+                  alt=''
+                  className='block object-contain w-32 rounded-md'
+                />
+                <div className='flex-1'>
+                  <button className='px-4 py-1 text-xl font-bold text-gray-900 bg-purple-300 rounded-md'>
+                    Watch Video
+                  </button>
+                  <div className='mt-4'>
+                    <span>
+                      Loading the podcast player requires explicit consent since
+                      the player, once loaded, will set cookies of Link
+                      third-party website and establish Link connection to that
+                      website.
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <p>
+              You don't have to use the player on this site - you find our
+              podcast on{" "}
+              <Link
+                href='https://open.spotify.com/show/68gQF2otnNpFQRUFOn9yje'
+                className='font-bold text-yellow-300 hover:text-yellow-500'
+              >
+                Spotify
+              </Link>
+              ,
+              <Link
+                href='https://podcasts.apple.com/podcast/id1727139807'
+                className='font-bold text-yellow-300 hover:text-yellow-500'
+              >
+                iTunes / Apple Podcast
+              </Link>{" "}
+              all other common platforms.
+            </p>
+            <p>
+              Or you can use our
+              <Link
+                href='https://academind.podigee.io/feed/mp3'
+                className='font-bold text-yellow-300 hover:text-yellow-500'
+              >
+                RSS feed
+              </Link>
+              to load it in any podcasting app!
+            </p>
+            <p className='mt-3'>
+              <Link
+                href='https://www.youtube.com/playlist?list=PLtg-qq9992Esh07jSM9Auv61369nZ-vG0'
+                target='_blank'
+                className='inline-flex items-center gap-2 px-4 py-2 text-white bg-red-900 rounded-md hover:bg-red-800'
+              >
+                <Play className='inline w-3 h-3 fill-white' />
+
+                <span>Or watch &amp; listen on YouTube</span>
+              </Link>
+            </p>
+          </section>
+
+          <div className='flex flex-col'>
+            {videos.map((video, i) => (
+              <span key={i}>
+                <h2 className='mb-4 text-xl font-bold md:text-2xl font-title'>
+                  {video.title}
+                </h2>
+                <div className='flex flex-col items-center gap-2 p-4 mb-4 bg-purple-800 rounded-md md:gap-8 md:flex-row'>
+                  <img
+                    src={`video.image`}
+                    alt=''
+                    className='block object-contain w-32 rounded-md'
+                  />
+                  <div className='flex-1'>
+                    <Link
+                      href={`${video.videoLink}`}
+                      className='px-4 py-1 text-xl font-bold text-gray-900 bg-purple-300 rounded-md'
+                    >
+                      Watch Video
+                    </Link>
+                    <div className='mt-4'>
+                      <span>{video.description}</span>
+                    </div>
+                  </div>
+                </div>
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+          {videos?.map((video, i) => (
             <div
               key={i}
               className='group flex flex-col h-full bg-white border border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7]'
@@ -168,7 +282,7 @@ export default function Youtube({
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );

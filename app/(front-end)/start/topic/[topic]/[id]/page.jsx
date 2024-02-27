@@ -1,4 +1,4 @@
-import DetailedNotes from "@/components/(frontend)/DetailedNotes";
+import DetailedNotes from "@/Components/(frontend)/DetailedNotes";
 import { getData } from "@/utils/getData";
 import React from "react";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { getData } from "@/utils/getData";
-import { TopicForm } from "@/components/admin/TopicForm";
+import { TopicForm } from "@/Components/admin/TopicForm";
 
 export default async function page({ params: { id } }) {
   const catagories = await getData("category");

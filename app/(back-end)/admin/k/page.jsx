@@ -13,22 +13,22 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+} from "@/Components/ui/form";
+import { Input } from "@/Components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
+} from "@/Components/ui/select";
+import { Button } from "@/Components/ui/button";
+import { Textarea } from "@/Components/ui/textarea";
+import { Label } from "@/Components/ui/label";
 import { useState } from "react";
-import { Switch } from "@/components/ui/switch";
+import { Switch } from "@/Components/ui/switch";
 import { generateSlug } from "@/utils/generateSlug";
-import ImageInput from "../../../../components/admin/formInputs/ImageInput";
+import ImageInput from "../../../../Components/admin/formInputs/ImageInput";
 
 const profileFormSchema = z.object({
   title: z.string().min(2).max(80),

@@ -1,6 +1,6 @@
 import { getData } from "@/utils/getData";
-import SideBar from "@/components/(frontend)/SideBar";
-import { StartNav } from "@/components/(frontend)/StartNav";
+import SideBar from "@/Components/(frontend)/SideBar";
+import { StartNav } from "@/Components/(frontend)/StartNav";
 
 export default async function Layout({ children }) {
   try {

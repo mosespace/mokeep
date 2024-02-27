@@ -1,8 +1,8 @@
 import { getData } from "@/utils/getData";
 import { getServerSession } from "next-auth";
-import Form from "@/components/dashboard/Form";
+import Form from "@/Components/dashboard/Form";
 import { authOptions } from "@/utils/authOptions";
-import GridSection from "@/components/dashboard/GridSection";
+import GridSection from "@/Components/dashboard/GridSection";
 import { redirect } from "next/navigation";
 
 export default async function page() {

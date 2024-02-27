@@ -1,7 +1,7 @@
 import { getData } from "@/utils/getData";
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
-import Form from "@/components/dashboard/Form";
+import Form from "@/Components/dashboard/Form";
 import { authOptions } from "@/utils/authOptions";
 
 export default async function page({ params: { noteId } }) {

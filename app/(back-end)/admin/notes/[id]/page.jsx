@@ -1,6 +1,6 @@
 import React from "react";
 import { getData } from "@/utils/getData";
-import { NotesForm } from "@/components/admin/NotesForm";
+import { NotesForm } from "@/Components/admin/NotesForm";
 
 export default async function page({ params: { id } }) {
   const note = await getData(`notes/${id}`);

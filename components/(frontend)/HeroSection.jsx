@@ -1,9 +1,6 @@
-import Link from "next/link";
-import React from "react";
-import Courses from "./Courses";
-import Statistics from "./Statistics";
-import Pricing from "./Pricing";
 import Button from "./Button";
+import Courses from "./Courses";
+import Pricing from "./Pricing";
 
 export default function HeroSection() {
   return (
@@ -19,7 +16,7 @@ export default function HeroSection() {
               <p className='max-w-xl mx-auto mt-8 text-base lg:text-xl text-slate-300'>
                 At Desishub-Coding-School we have eased that process with our
                 complete free lessons that only need you to take 1/2 hours of
-                your daily time. EVerything is simplified for you to the best
+                your daily time. Everything is simplified for you to the best
                 way you can understand it.
               </p>
             </div>

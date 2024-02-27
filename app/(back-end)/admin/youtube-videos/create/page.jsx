@@ -1,6 +1,6 @@
 import React from "react";
-import Head from "@/components/admin/Head";
-import { CreateVideo } from "@/components/admin/CreateVideo";
+import Head from "@/Components/admin/Head";
+import { CreateVideo } from "@/Components/admin/CreateVideo";
 
 export default function page() {
   return (
