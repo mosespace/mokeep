@@ -1,7 +1,11 @@
+"use client";
 import { Mic, Play } from "lucide-react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+const youtube = require("youtube-metadata-from-url");
 
 export default function Youtube({ mainTitle = "Learn From Youtube 🫣" }) {
+  const [jsonData, setJsonData] = useState(null);
   const videos = [
     {
       author: "@codewithmoses",
@@ -127,6 +131,20 @@ export default function Youtube({ mainTitle = "Learn From Youtube 🫣" }) {
       courseLink: "/course",
     },
   ];
+
+  useEffect(() => {
+    const url = "https://www.youtube.com/watch?v=2Ur8oxrFugY";
+
+    youtube.metadata(url).then(
+      function (json) {
+        console.log(json);
+        setJsonData(json); // Set the JSON data once it's retrieved
+      },
+      function (err) {
+        console.log(err);
+      }
+    );
+  }, []); // Empty dependency array ensures this effect runs only once after the initial render
   return (
     <div>
       <div className='px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
@@ -154,14 +172,18 @@ export default function Youtube({ mainTitle = "Learn From Youtube 🫣" }) {
             <h2 className='font-bold text-yellow-400'>Latest Episode</h2>
             <article>
               <h3 className='mb-4 text-xl font-bold md:text-2xl font-title'>
-                Episode OpenAI's Latest AI Model - Welcome Sora...👋
+                {jsonData && jsonData.title ? jsonData.title : ""}
               </h3>
               <div className='flex flex-col items-center gap-2 p-4 mb-4 bg-purple-800 rounded-md md:gap-8 md:flex-row'>
-                <img
-                  src='https://images.podigee-cdn.net/0x,sFo6-YK9azK_nNAIFpcDphyAUTV3ItbzYZA_uexZsWHk=/https://main.podigee-cdn.net/uploads/u59580/941d0099-e6c5-4f87-81c1-85c7037e7d3a.jpg'
-                  alt=''
-                  className='block object-contain w-32 rounded-md'
-                />
+                {jsonData && jsonData.thumbnail_url ? ( // Check if jsonData and thumbnail_url are available
+                  <img
+                    src={jsonData.thumbnail_url}
+                    alt=''
+                    className='block object-contain w-32 rounded-md'
+                  />
+                ) : (
+                  <div>Loading Thumbnail...</div> // Placeholder or loading indicator
+                )}
                 <div className='flex-1'>
                   <button className='px-4 py-1 text-xl font-bold text-gray-900 bg-purple-300 rounded-md'>
                     Watch Video
