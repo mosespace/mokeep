@@ -1,10 +1,11 @@
 "use client"
+import { usePathname } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 import { CiMenuBurger } from 'react-icons/ci';
 
 export default function AdminHeader({toggleSidebar}) {
     const [activeLink, setActiveLink] = useState("");
-
+  
     const navigation = [
         {
             href: "/admin/category",
@@ -35,7 +36,10 @@ export default function AdminHeader({toggleSidebar}) {
             setActiveLink(storedActiveLink);
         }
     }, []); 
-
+    const pathname = usePathname()
+    if(pathname === "/admin/resource-links" || pathname === "/admin/resource-links-categories/create" || pathname === "/admin/resource-links/create" || pathname === "/admin/resource-links-categories"  || pathname === "/admin/youtube-videos"  ){
+      return null
+    }
     return (
         <div className="max-w-screen-xl mx-auto px-4 pt-4 md:px-8">
             <div className="max-w-lg">
