@@ -1,10 +1,10 @@
-import { CategoryForm } from '@/components/admin/Form'
-import React from 'react'
+import { CategoryForm } from "@/components/admin/Form";
+import React from "react";
 
 export default function page() {
   return (
     <div>
-    <CategoryForm />
+      <CategoryForm />
     </div>
-  )
+  );
 }

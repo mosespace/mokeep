@@ -7,8 +7,13 @@ export default async function page() {
   const notes = await getData("notes");
   return (
     <div className='flex flex-col'>
-     <Head title={"NOTE : Before creating notes first choose the subCategories , categories , and the topics"} link={"/admin/notes/create"}/>
-      <GridSection data={notes}/>
+      <Head
+        title={
+          "NOTE : Before creating notes first choose the subCategories , categories , and the topics"
+        }
+        link={"/admin/notes/create"}
+      />
+      <GridSection data={notes} />
     </div>
   );
 }

@@ -3,17 +3,16 @@ import { NextResponse } from "next/server";
 
 export async function POST(request) {
   try {
-    const { title, VedioLink, author, courseLink, description } =
-      await request.json();
+    const { VedioLink, courseLink, description } = await request.json();
     const existingVideo = await db.YouTube.findFirst({
       where: {
-        title: title,
+        VedioLink: VedioLink,
       },
     });
     if (existingVideo) {
       return NextResponse.json(
         {
-          error: "video with this title  already exists",
+          error: "video with this link  already exists",
           message: "video creation failed",
         },
         {
@@ -24,9 +23,7 @@ export async function POST(request) {
 
     const youtubeVideo = await db.YouTube.create({
       data: {
-        title,
         VedioLink,
-        author,
         courseLink,
         description,
       },
@@ -46,6 +43,7 @@ export async function POST(request) {
     );
   }
 }
+
 export async function GET(request) {
   try {
     const videos = await db.YouTube.findMany({

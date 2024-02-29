@@ -49,11 +49,8 @@ export const Nav = ({ courses }) => {
                 height={310}
                 src='/logo-red.png'
                 alt='desishub-coding-school'
-                className='w-[4.5rem] h-12 object-coverk'
+                className='w-[4.5rem] h-12'
               />
-              {/* <span className='text-xl font-bold tracking-wide  text-[#FF57C3]'>
-                Desis<span className='font-light'>Hub</span>
-              </span> */}
             </Link>
             <ul className='md:flex items-center hidden space-x-8 lg:flex'>
               {links.map((link, i) => (
@@ -103,15 +100,6 @@ export const Nav = ({ courses }) => {
                 <div className='absolute top-0 left-0 w-full'>
                   <div className='p-5 bg-white border rounded shadow-sm'>
                     <div className='flex items-center justify-between mb-4'>
-                      {/* <div>
-                      <Image
-                        width={96}
-                        height={96}
-                        src='/desishub-coding-school-logo.png'
-                        alt='desishub-coding-school-logo'
-                        className='w-[4.5rem] text-teal-accent-400'
-                      />
-                    </div> */}
                       <span className='text-xl font-bold tracking-wide  text-[#FF57C3]'>
                         Desis<span className='font-light'>Hub</span>
                       </span>
@@ -163,7 +151,6 @@ export const Nav = ({ courses }) => {
           </div>
         </div>
       </div>
-      <StickyNav courses={courses} />
     </div>
   );
 };

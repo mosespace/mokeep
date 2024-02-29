@@ -65,10 +65,10 @@ model Notes {
 
 model YouTube {
   id          String @id @default(auto()) @map("_id") @db.ObjectId
-  author      String
-  title       String
+  // author      String
+  // title       String
   description String
-  image       String?
+  // image       String?
   VedioLink   String
   courseLink  String
   updatedAt   DateTime     @updatedAt
@@ -90,4 +90,14 @@ model Link {
   linkCategoryId String?    @db.ObjectId
   updatedAt     DateTime   @updatedAt
   createdAt     DateTime   @default(now())
+}
+model Course {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  slug        String
+  image       String
+  description String
+  price       Float
+  discount    Float
+  comingSoon  Boolean
 }

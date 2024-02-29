@@ -1,44 +1,46 @@
-"use client"
-import Link from 'next/link';
-import React, { useState, useEffect } from 'react';
+"use client";
+import Link from "next/link";
+import React, { useState, useEffect } from "react";
 import { CiMenuBurger } from "react-icons/ci";
 
-export default function AdminSideBar({isSidebarOpen , setIsSidebarOpen ,toggleSidebar}) {
- 
+export default function AdminSideBar({
+  isSidebarOpen,
+  setIsSidebarOpen,
+  toggleSidebar,
+}) {
   useEffect(() => {
     const closeSidebar = (e) => {
-
-      if (!document.getElementById('docs-sidebar').contains(e.target)) {
+      if (!document.getElementById("docs-sidebar").contains(e.target)) {
         setIsSidebarOpen(false);
       }
     };
 
-    
-    document.body.addEventListener('click', closeSidebar);
+    document.body.addEventListener("click", closeSidebar);
 
     return () => {
-      document.body.removeEventListener('click', closeSidebar);
+      document.body.removeEventListener("click", closeSidebar);
     };
   }, []);
 
   return (
     <div className=''>
       <button
-        type="button"
-        className="text-gray-500 hover:text-gray-600 hidden"
+        type='button'
+        className='text-gray-500 hover:text-gray-600 hidden'
         onClick={toggleSidebar}
-        aria-label="Toggle navigation"
+        aria-label='Toggle navigation'
       >
-        <span className="sr-only">Toggle Navigation</span>
-        <CiMenuBurger size={20}/>
+        <span className='sr-only'>Toggle Navigation</span>
+        <CiMenuBurger size={20} />
       </button>
 
       <div
-        id="docs-sidebar"
+        id='docs-sidebar'
         className={`hs-overlay ${
-          isSidebarOpen ? 'hs-overlay-open:translate-x-0' : '-translate-x-full'
+          isSidebarOpen ? "hs-overlay-open:translate-x-0" : "-translate-x-full"
         } transition-all duration-300 transform fixed top-0 start-0 bottom-0 z-[60] w-64 bg-white border-e border-gray-200 pt-7 pb-10 overflow-y-auto lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-slate-700 dark:[&::-webkit-scrollbar-thumb]:bg-slate-500 dark:bg-gray-800 dark:border-gray-700`}
       >
+      
   <div class="px-6">
     <a class="flex-none text-xl font-semibold dark:text-white" href="/" aria-label="Brand">Desishub</a>
   </div>
@@ -110,6 +112,7 @@ Links Categories
     </ul>
   </nav>
 </div>
-    </div>
-  )
+
+</div>
+  );
 }

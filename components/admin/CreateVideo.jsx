@@ -40,6 +40,7 @@ export function CreateVideo({ initialData }) {
       method,
     });
     reset();
+    router.push("/admin/youtube-videos");
     if (initialData) {
       router.push("/admin/youtube-videos");
     }
@@ -51,30 +52,20 @@ export function CreateVideo({ initialData }) {
       className='flex flex-col space-y-8 w-full lg:w-[80%] mt-4 border border-gray-900 p-5 rounded-lg'
     >
       <TextInputs
-        placeholder='Enter Video title'
-        label='Video Title'
-        name='title'
-        type='text'
-        width='max-w-full'
-        errors={errors}
-        register={register}
-      />
-
-      <TextInputs
         placeholder='Enter Video Link'
         label='Video Link'
         name='VedioLink'
         width='max-w-full'
-        type='text'
+        type='url'
         errors={errors}
         register={register}
       />
       <TextInputs
-        placeholder='Enter Course Link'
+        placeholder='Enter Must Watch Course Link'
         label='Course Link'
         name='courseLink'
         width='max-w-full'
-        type='text'
+        type='url'
         errors={errors}
         register={register}
       />
@@ -84,15 +75,7 @@ export function CreateVideo({ initialData }) {
         register={register}
         errors={errors}
       />
-      <TextInputs
-        placeholder='@johndoe'
-        label='Video Link'
-        name='author'
-        width='max-w-full'
-        type='text'
-        errors={errors}
-        register={register}
-      />
+
       <div>
         {loading ? (
           <button

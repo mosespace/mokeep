@@ -45,8 +45,8 @@ export default function Dash() {
                   <path
                     d='M5 1L10.6869 7.16086C10.8637 7.35239 10.8637 7.64761 10.6869 7.83914L5 14'
                     stroke='currentColor'
-                    stroke-width='2'
-                    stroke-linecap='round'
+                    strokeWidth='2'
+                    strokeLinecap='round'
                   />
                 </svg>
               </li>
@@ -102,9 +102,9 @@ export default function Dash() {
                   viewBox='0 0 24 24'
                   fill='none'
                   stroke='currentColor'
-                  stroke-width='2'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
+                  strokeWidth='2'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
                 >
                   <path d='m15 18-6-6 6-6' />
                 </svg>
