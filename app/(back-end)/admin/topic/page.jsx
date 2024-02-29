@@ -1,6 +1,6 @@
 import { getData } from "@/utils/getData";
-import Topics from "@/Components/admin/Topics";
-import Head from "@/Components/admin/Head";
+import Topics from "@/components/admin/Topics";
+import Head from "@/components/admin/Head";
 
 export default async function page() {
   const topics = await getData("topic");

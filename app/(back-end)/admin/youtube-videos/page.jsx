@@ -1,6 +1,6 @@
 import React from "react";
-import Head from "@/Components/admin/Head";
-import Videos from "@/Components/admin/Videos";
+import Head from "@/components/admin/Head";
+import Videos from "@/components/admin/Videos";
 import { getData } from "@/utils/getData";
 
 export default async function page() {

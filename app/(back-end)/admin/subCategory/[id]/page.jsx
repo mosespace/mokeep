@@ -1,6 +1,6 @@
 import React from "react";
 import { getData } from "@/utils/getData";
-import { SubCategoriesForm } from "@/Components/admin/SubCategoriesForm";
+import { SubCategoriesForm } from "@/components/admin/SubCategoriesForm";
 
 export default async function page({ params: { id } }) {
   const subCategories = await getData(`subCategory/${id}`);

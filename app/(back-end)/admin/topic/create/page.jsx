@@ -1,4 +1,4 @@
-import { TopicForm } from "@/Components/admin/TopicForm";
+import { TopicForm } from "@/components/admin/TopicForm";
 import { getData } from "@/utils/getData";
 import React from "react";
 

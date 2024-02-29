@@ -1,5 +1,5 @@
-import Form from "@/Components/dashboard/Form";
-import Sidebar from "@/Components/dashboard/Sidebar";
+import Form from "@/components/dashboard/Form";
+import Sidebar from "@/components/dashboard/Sidebar";
 
 export default function RootLayout({ children }) {
   return (

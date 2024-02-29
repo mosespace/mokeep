@@ -1,4 +1,4 @@
-import RegisterForm from "@/Components/RegisterForm";
+import RegisterForm from "@/components/RegisterForm";
 
 export default function Home() {
   const field_names = ["First Name", "Second Name"];

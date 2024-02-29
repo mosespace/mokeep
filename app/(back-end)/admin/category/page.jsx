@@ -1,7 +1,7 @@
 import React from "react";
 import { getData } from "@/utils/getData";
-import Categories from "@/Components/admin/Categories";
-import Head from "@/Components/admin/Head";
+import Categories from "@/components/admin/Categories";
+import Head from "@/components/admin/Head";
 
 export default async function page() {
   const categories = await getData("category");

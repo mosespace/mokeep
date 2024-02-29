@@ -1,10 +1,10 @@
 import "./globals.css";
 import { Toaster } from "sonner";
-import { Nav } from "@/Components/Nav";
-import Footer from "@/Components/Footer";
+import { Nav } from "@/components/Nav";
+import Footer from "@/components/Footer";
 import { Inter } from "next/font/google";
 import AuthProvider from "@/context/AuthProvider";
-import SideBar from "@/Components/(frontend)/SideBar";
+import SideBar from "@/components/(frontend)/SideBar";
 import { getData } from "@/utils/getData";
 
 const inter = Inter({ subsets: ["latin"] });

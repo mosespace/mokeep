@@ -1,4 +1,4 @@
-import { SubCategoriesForm } from "@/Components/admin/SubCategoriesForm";
+import { SubCategoriesForm } from "@/components/admin/SubCategoriesForm";
 import { getData } from "@/utils/getData";
 import React from "react";
 

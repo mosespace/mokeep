@@ -1,4 +1,4 @@
-import { NotesForm } from "@/Components/admin/NotesForm";
+import { NotesForm } from "@/components/admin/NotesForm";
 import { getData } from "@/utils/getData";
 import React from "react";
 

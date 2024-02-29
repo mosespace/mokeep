@@ -1,5 +1,5 @@
-import { Textarea } from "@/Components/ui/textarea";
-import { Label } from "@/Components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
 
 export function CustomTextArea({
   label,

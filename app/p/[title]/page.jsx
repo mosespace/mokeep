@@ -17,7 +17,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/Components/ui/accordion";
+} from "@/components/ui/accordion";
 import { FaVideo } from "react-icons/fa";
 
 export default function page({ params: { title } }) {
