@@ -1,6 +1,7 @@
 import Button from "./Button";
 import Courses from "./Courses";
 import Pricing from "./Pricing";
+import Statistics from "./Statistics";
 
 export default function HeroSection() {
   return (
@@ -26,7 +27,7 @@ export default function HeroSection() {
           </div>
           <Courses />
           <Pricing />
-          {/* <Statistics /> */}
+          <Statistics />
         </div>
       </section>
     </>

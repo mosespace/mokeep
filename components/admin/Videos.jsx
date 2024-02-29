@@ -1,7 +1,45 @@
-import Link from "next/link";
+"use client";
 import React from "react";
+import Link from "next/link";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 export default function Videos({ data }) {
+  const router = useRouter();
+
+  async function handleDelete(id) {
+    // console.log(id);
+    const userConfirmation = window.confirm(
+      "Are you sure you want to delete this video?"
+    );
+
+    if (userConfirmation) {
+      try {
+        const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
+        const response = await fetch(`${baseUrl}/api/youtube/update/${id}`, {
+          cache: "no-store",
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (response.ok) {
+          toast.success(`Successfully Deleted video with ID: ${id}`);
+          router.refresh();
+        } else {
+          toast.error("Failed to delete the video. Please try again.");
+        }
+      } catch (error) {
+        console.error("Error deleting video:", error);
+        toast.error(
+          "An error occurred while deleting the video. Please try again."
+        );
+      }
+    }
+  }
+
   return (
     <div>
       <div className='px-4 py-10 sm:px-6 lg:px-8 lg:py-14'>
@@ -61,9 +99,13 @@ export default function Videos({ data }) {
                   >
                     Edit
                   </Link>
-                  <button className='w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-xl bg-red-600 shadow-sm disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600'>
+                  <button
+                    onClick={() => handleDelete(item.id)}
+                    className='w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-ee-xl bg-red-600 shadow-sm disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600'
+                  >
                     Delete
                   </button>
+                  {/* <DeleteBtn noteId={item.id} /> */}
                 </div>
               </div>
             );
