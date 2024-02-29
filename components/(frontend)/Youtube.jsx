@@ -1,6 +1,6 @@
 "use client";
-import { getData } from "@/utils/getData";
 import Video from "./Video";
+import { getData } from "@/utils/getData";
 
 export default async function Youtube() {
   const videos = await getData("youtube");
